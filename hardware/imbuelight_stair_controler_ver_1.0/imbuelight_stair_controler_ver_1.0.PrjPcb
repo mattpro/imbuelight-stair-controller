@@ -168,20 +168,20 @@ GenerateClassCluster=0
 DocumentUniqueId=RTNCVVTY
 
 [Parameter1]
-Name=My_Revision
-Value=1.0
+Name=My_Author
+Value=Mateusz Gancarczyk
 
 [Parameter2]
-Name=My_NameOfProject
-Value=Imbuelight Stair Controller
-
-[Parameter3]
 Name=My_Date
 Value=28.02.2023
 
+[Parameter3]
+Name=My_NameOfProject
+Value=Imbuelight Stair Controller
+
 [Parameter4]
-Name=My_Author
-Value=Mateusz Gancarczyk
+Name=My_Revision
+Value=1.0
 
 [Configuration1]
 Name=Sources
