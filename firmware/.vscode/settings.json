@@ -1,3 +1,4 @@
 {
-    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "cmake.sourceDirectory": "${workspaceFolder}/imbuelight_stair_controller_fw"
 }
