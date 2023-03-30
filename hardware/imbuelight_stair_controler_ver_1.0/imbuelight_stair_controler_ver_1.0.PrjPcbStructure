@@ -23,7 +23,11 @@ Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=Channel_21|SchDesignator
 Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=Channel_22|SchDesignator=Channel_22|FileName=pwm_channel.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=pwm_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
 Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=Channel_23|SchDesignator=Channel_23|FileName=pwm_channel.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=pwm_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
 Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=Channel_24|SchDesignator=Channel_24|FileName=pwm_channel.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=pwm_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
-Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=microcontroller.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=oled.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=others.SchDoc|SheetNumber=6
-Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=power.SchDoc|SheetNumber=5
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=IN_1|SchDesignator=IN_1|FileName=in_channel.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=in_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=IN_2|SchDesignator=IN_2|FileName=in_channel.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=in_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=IN_3|SchDesignator=IN_3|FileName=in_channel.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=in_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=IN_4|SchDesignator=IN_4|FileName=in_channel.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=in_channel.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=microcontroller.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=oled.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=others.SchDoc|SheetNumber=7
+Record=NoMainPathDocument|SourceDocument=Top.SchDoc|FileName=power.SchDoc|SheetNumber=6

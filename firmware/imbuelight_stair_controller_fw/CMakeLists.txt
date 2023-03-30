@@ -8,6 +8,8 @@ project(imbuelight_stair_controller C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+set(PICO_BOARD "pico_w")
+
 pico_sdk_init()
 
 add_executable(${PROJECT_NAME}
@@ -17,6 +19,8 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     pico_stdlib
     hardware_pio
+    hardware_pwm
+    pico_cyw43_arch_none
 )
 
 add_compile_options(-Wall
