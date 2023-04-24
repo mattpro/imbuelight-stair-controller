@@ -1,0 +1,161 @@
+Protel Design System Design Rule Check
+PCB File : D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
+Date     : 24.04.2023
+Time     : 23:44:21
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_1-4(2364.808mil,439.914mil) on Top Layer And Pad D6_IN_1-7(2326.303mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_1-5(2364.808mil,465.504mil) on Top Layer And Pad D6_IN_1-7(2326.303mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_1-6(2364.808mil,491.095mil) on Top Layer And Pad D6_IN_1-7(2326.303mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_2-4(1886.328mil,439.914mil) on Top Layer And Pad D6_IN_2-7(1847.822mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_2-5(1886.328mil,465.504mil) on Top Layer And Pad D6_IN_2-7(1847.822mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_2-6(1886.328mil,491.095mil) on Top Layer And Pad D6_IN_2-7(1847.822mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_3-4(918.139mil,439.914mil) on Top Layer And Pad D6_IN_3-7(879.633mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_3-5(918.139mil,465.504mil) on Top Layer And Pad D6_IN_3-7(879.633mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_3-6(918.139mil,491.095mil) on Top Layer And Pad D6_IN_3-7(879.633mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_4-4(1404.753mil,439.914mil) on Top Layer And Pad D6_IN_4-7(1366.247mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_4-5(1404.753mil,465.504mil) on Top Layer And Pad D6_IN_4-7(1366.247mil,465.504mil) on Top Layer 
+   Violation between Clearance Constraint: (5.906mil < 6mil) Between Pad D6_IN_4-6(1404.753mil,491.095mil) on Top Layer And Pad D6_IN_4-7(1366.247mil,465.504mil) on Top Layer 
+Rule Violations :12
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=157.48mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=300mil) (All)
+   Violation between Hole Size Constraint: (314.961mil > 300mil) Pad OLED1-0(1476.208mil,1692.913mil) on Multi-Layer Actual Slot Hole Width = 314.961mil
+   Violation between Hole Size Constraint: (314.961mil > 300mil) Pad OLED1-0(1476.208mil,755.905mil) on Multi-Layer Actual Slot Hole Width = 314.961mil
+   Violation between Hole Size Constraint: (314.961mil > 300mil) Pad OLED1-0(2224.24mil,1692.913mil) on Multi-Layer Actual Slot Hole Width = 314.961mil
+   Violation between Hole Size Constraint: (314.961mil > 300mil) Pad OLED1-0(2224.24mil,755.905mil) on Multi-Layer Actual Slot Hole Width = 314.961mil
+Rule Violations :4
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=1mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.1mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.01mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Room Channel_16 (Bounding Region = (4151.22mil, 3600mil, 5006.22mil, 3925mil) (InComponentClass('Channel_16'))
+Rule Violations :0
+
+Processing Rule : Room Channel_15 (Bounding Region = (4151.22mil, 3925mil, 5006.22mil, 4250mil) (InComponentClass('Channel_15'))
+Rule Violations :0
+
+Processing Rule : Room Channel_14 (Bounding Region = (4151.22mil, 4250mil, 5006.22mil, 4575mil) (InComponentClass('Channel_14'))
+Rule Violations :0
+
+Processing Rule : Room Channel_17 (Bounding Region = (4151.22mil, 3275mil, 5006.22mil, 3600mil) (InComponentClass('Channel_17'))
+Rule Violations :0
+
+Processing Rule : Room Channel_20 (Bounding Region = (4151.22mil, 2300mil, 5006.22mil, 2625mil) (InComponentClass('Channel_20'))
+Rule Violations :0
+
+Processing Rule : Room Channel_19 (Bounding Region = (4151.22mil, 2625mil, 5006.22mil, 2950mil) (InComponentClass('Channel_19'))
+Rule Violations :0
+
+Processing Rule : Room Channel_18 (Bounding Region = (4151.22mil, 2950mil, 5006.22mil, 3275mil) (InComponentClass('Channel_18'))
+Rule Violations :0
+
+Processing Rule : Room Channel_13 (Bounding Region = (4151.22mil, 4575mil, 5006.22mil, 4900mil) (InComponentClass('Channel_13'))
+Rule Violations :0
+
+Processing Rule : Room IN_4 (Bounding Region = (2357.748mil, 885mil, 2836.22mil, 1698.732mil) (InComponentClass('IN_4'))
+   Violation between Room Definition: Between Room IN_4 (Bounding Region = (2357.748mil, 885mil, 2836.22mil, 1698.732mil) (InComponentClass('IN_4')) And Small Component IN1_IN_4-15EDGRC-3.5-3P (1492.535mil,209.449mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room IN_3 (Bounding Region = (1872.748mil, 885mil, 2351.22mil, 1698.732mil) (InComponentClass('IN_3'))
+   Violation between Room Definition: Between Room IN_3 (Bounding Region = (1872.748mil, 885mil, 2351.22mil, 1698.732mil) (InComponentClass('IN_3')) And Small Component IN1_IN_3-15EDGRC-3.5-3P (1005.921mil,209.449mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room IN_1 (Bounding Region = (3316.22mil, 885mil, 3794.693mil, 1698.732mil) (InComponentClass('IN_1'))
+Rule Violations :0
+
+Processing Rule : Room IN_2 (Bounding Region = (2837.748mil, 885mil, 3316.22mil, 1698.732mil) (InComponentClass('IN_2'))
+Rule Violations :0
+
+Processing Rule : Room Channel_11 (Bounding Region = (1000mil, 4250mil, 1855mil, 4575.001mil) (InComponentClass('Channel_11'))
+   Violation between Room Definition: Between Room Channel_11 (Bounding Region = (1000mil, 4250mil, 1855mil, 4575.001mil) (InComponentClass('Channel_11')) And SMT Small Component D1_Channel_11-* (343.308mil,3289.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_24 (Bounding Region = (4151.22mil, 999.999mil, 5006.22mil, 1325mil) (InComponentClass('Channel_24'))
+Rule Violations :0
+
+Processing Rule : Room Channel_21 (Bounding Region = (4151.22mil, 1974.999mil, 5006.22mil, 2300mil) (InComponentClass('Channel_21'))
+Rule Violations :0
+
+Processing Rule : Room Channel_22 (Bounding Region = (4151.22mil, 1649.999mil, 5006.22mil, 1975mil) (InComponentClass('Channel_22'))
+Rule Violations :0
+
+Processing Rule : Room Channel_7 (Bounding Region = (1000mil, 2950mil, 1855mil, 3275.001mil) (InComponentClass('Channel_7'))
+   Violation between Room Definition: Between Room Channel_7 (Bounding Region = (1000mil, 2950mil, 1855mil, 3275.001mil) (InComponentClass('Channel_7')) And SMT Small Component D1_Channel_7-* (343.307mil,1989.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_8 (Bounding Region = (1000mil, 3275mil, 1855mil, 3600.001mil) (InComponentClass('Channel_8'))
+   Violation between Room Definition: Between Room Channel_8 (Bounding Region = (1000mil, 3275mil, 1855mil, 3600.001mil) (InComponentClass('Channel_8')) And SMT Small Component D1_Channel_8-* (343.307mil,2314.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_9 (Bounding Region = (1000mil, 3600mil, 1855mil, 3925.001mil) (InComponentClass('Channel_9'))
+   Violation between Room Definition: Between Room Channel_9 (Bounding Region = (1000mil, 3600mil, 1855mil, 3925.001mil) (InComponentClass('Channel_9')) And SMT Small Component D1_Channel_9-* (343.307mil,2639.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_6 (Bounding Region = (1000mil, 2625mil, 1855mil, 2950.001mil) (InComponentClass('Channel_6'))
+   Violation between Room Definition: Between Room Channel_6 (Bounding Region = (1000mil, 2625mil, 1855mil, 2950.001mil) (InComponentClass('Channel_6')) And SMT Small Component D1_Channel_6-* (343.307mil,1664.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_3 (Bounding Region = (1000mil, 1650mil, 1855mil, 1975.001mil) (InComponentClass('Channel_3'))
+   Violation between Room Definition: Between Room Channel_3 (Bounding Region = (1000mil, 1650mil, 1855mil, 1975.001mil) (InComponentClass('Channel_3')) And SMT Small Component D1_Channel_3-* (343.307mil,689.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_4 (Bounding Region = (1000mil, 1975mil, 1855mil, 2300.001mil) (InComponentClass('Channel_4'))
+   Violation between Room Definition: Between Room Channel_4 (Bounding Region = (1000mil, 1975mil, 1855mil, 2300.001mil) (InComponentClass('Channel_4')) And SMT Small Component D1_Channel_4-* (343.307mil,1014.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_5 (Bounding Region = (1000mil, 2300mil, 1855mil, 2625.001mil) (InComponentClass('Channel_5'))
+   Violation between Room Definition: Between Room Channel_5 (Bounding Region = (1000mil, 2300mil, 1855mil, 2625.001mil) (InComponentClass('Channel_5')) And SMT Small Component D1_Channel_5-* (343.307mil,1339.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_23 (Bounding Region = (4151.22mil, 1324.999mil, 5006.22mil, 1650mil) (InComponentClass('Channel_23'))
+Rule Violations :0
+
+Processing Rule : Room Channel_2 (Bounding Region = (1000mil, 1325mil, 1855mil, 1650.001mil) (InComponentClass('Channel_2'))
+   Violation between Room Definition: Between Room Channel_2 (Bounding Region = (1000mil, 1325mil, 1855mil, 1650.001mil) (InComponentClass('Channel_2')) And SMT Small Component D1_Channel_2-* (343.307mil,364.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_1 (Bounding Region = (1000mil, 1000mil, 1855mil, 1325mil) (InComponentClass('Channel_1'))
+Rule Violations :0
+
+Processing Rule : Room Channel_10 (Bounding Region = (1000mil, 3925mil, 1855mil, 4250.001mil) (InComponentClass('Channel_10'))
+   Violation between Room Definition: Between Room Channel_10 (Bounding Region = (1000mil, 3925mil, 1855mil, 4250.001mil) (InComponentClass('Channel_10')) And SMT Small Component D1_Channel_10-* (343.307mil,2964.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room Channel_12 (Bounding Region = (1000mil, 4575mil, 1855mil, 4900.001mil) (InComponentClass('Channel_12'))
+   Violation between Room Definition: Between Room Channel_12 (Bounding Region = (1000mil, 4575mil, 1855mil, 4900.001mil) (InComponentClass('Channel_12')) And SMT Small Component D1_Channel_12-* (343.307mil,3614.749mil) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 29
+Waived Violations : 0
+Time Elapsed        : 00:00:02
