@@ -239,6 +239,86 @@ DocumentUniqueId=
 DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\Design Rule Check - imbuelight_stair_controller.html
 DItemRevisionGUID=
 
+[GeneratedDocument2]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller-RectHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GM
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GP1
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GP2
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.REP
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\Pick Place for imbuelight_stair_controller.csv
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs for imbuelight_stair_controler_ver_1.0\Pick Place for imbuelight_stair_controller.txt
+DItemRevisionGUID=
+
 [Parameter1]
 Name=My_Author
 Value=Mateusz Gancarczyk
@@ -545,6 +625,10 @@ OutputName2=Generates pick and place files
 OutputDocumentPath2=
 OutputVariantName2=[No Variations]
 OutputDefault2=0
+Configuration2_Name1=ForceUpdateSettings
+Configuration2_Item1=False
+Configuration2_Name2=OutputConfigurationParameter1
+Configuration2_Item2=Record=PickPlaceView|Units=Imperial|GenerateCSVFormat=True|GenerateTextFormat=False|ShowUnits=False|Separator=.|ExcludeFilterParam=False|IncludeVariations=False|IncludeStandardNoBOM=True|Filter= |FilterActive=False|YFlip=False|DifferentFootprints=False|Column#1=Name:Designator,Fixed:True,Metric:False,Visible:True,Sort:None,Position:0|Column#2=Name:Comment,Fixed:True,Metric:False,Visible:True,Sort:None,Position:1|Column#3=Name:Layer,Fixed:True,Metric:False,Visible:True,Sort:None,Position:2|Column#4=Name:Footprint,Fixed:True,Metric:False,Visible:True,Sort:None,Position:3|Column#5=Name:Footprint Description,Fixed:True,Metric:False,Visible:False,Sort:None,Position:4|Column#6=Name:Center-X,Fixed:True,Metric:True,Visible:True,Sort:None,Position:5|Column#7=Name:Center-Y,Fixed:True,Metric:True,Visible:True,Sort:None,Position:6|Column#8=Name:Rotation,Fixed:True,Metric:False,Visible:True,Sort:None,Position:7|Column#9=Name:Description,Fixed:True,Metric:False,Visible:True,Sort:None,Position:8|Column#10=Name:ComponentKind,Fixed:True,Metric:False,Visible:False,Sort:None,Position:9|Column#11=Name:Height,Fixed:True,Metric:True,Visible:False,Sort:None,Position:10|Column#12=Name:Ref-X,Fixed:True,Metric:True,Visible:False,Sort:None,Position:11|Column#13=Name:Ref-Y,Fixed:True,Metric:True,Visible:False,Sort:None,Position:12|Column#14=Name:Pad-X,Fixed:True,Metric:True,Visible:False,Sort:None,Position:13|Column#15=Name:Pad-Y,Fixed:True,Metric:True,Visible:False,Sort:None,Position:14|Column#16=Name:Variation,Fixed:True,Metric:False,Visible:False,Sort:None,Position:15|Column#17=Name:SMD,Fixed:False,Metric:False,Visible:False,Sort:None,Position:78,Type:0|Column#18=Name:ComponentLink3Description,Fixed:False,Metric:False,Visible:False,Sort:None,Position:28,Type:0|Column#19=Name:Inductance,Fixed:False,Metric:False,Visible:False,Sort:None,Position:38,Type:0|Column#20=Name:CreateDate,Fixed:False,Metric:False,Visible:False,Sort:None,Position:30,Type:0|Column#21=Name:HelpURL,Fixed:False,Metric:False,Visible:False,Sort:None,Position:36,Type:0|Column#22=Name:RoHS Compliant,Fixed:False,Metric:False,Visible:False,Sort:None,Position:77,Type:0|Column#23=Name:Voltage,Fixed:False,Metric:False,Visible:False,Sort:None,Position:93,Type:0|Column#24=Name:fT Min (MHz),Fixed:False,Metric:False,Visible:False,Sort:None,Position:35,Type:0|Column#25=Name:Max Operating Temperature,Fixed:False,Metric:False,Visible:False,Sort:None,Position:45,Type:0|Column#26=Name:Max Output Voltage,Fixed:False,Metric:False,Visible:False,Sort:None,Position:46,Type:0|Column#27=Name:Min Operating Temperature,Fixed:False,Metric:False,Visible:False,Sort:None,Position:48,Type:0|Column#28=Name:ClassName,Fixed:False,Metric:False,Visible:False,Sort:None,Position:20,Type:0|Column#29=Name:Case,Fixed:False,Metric:False,Visible:False,Sort:None,Position:18,Type:0|Column#30=Name:MP,Fixed:False,Metric:False,Visible:False,Sort:None,Position:53,Type:0|Column#31=Name:Mounted,Fixed:False,Metric:False,Visible:False,Sort:None,Position:51,Type:0|Column#32=Name:Part Number,Fixed:False,Metric:False,Visible:False,Sort:None,Position:68,Type:0|Column#33=Name:Min Input Voltage,Fixed:False,Metric:False,Visible:False,Sort:None,Position:47,Type:0|Column#34=Name:Packaging,Fixed:False,Metric:False,Visible:False,Sort:None,Position:64,Type:0|Column#35=Name:Supplier,Fixed:False,Metric:False,Visible:False,Sort:None,Position:80,Type:0|Column#36=Name:Supplier Part Number 2,Fixed:False,Metric:False,Visible:False,Sort:None,Position:86,Type:0|Column#37=Name:Power,Fixed:False,Metric:False,Visible:False,Sort:None,Position:72,Type:0|Column#38=Name:Mounting Technology,Fixed:False,Metric:False,Visible:False,Sort:None,Position:52,Type:0|Column#39=Name:Mount,Fixed:False,Metric:False,Visible:False,Sort:None,Position:50,Type:0|Column#40=Name:Case/Package,Fixed:False,Metric:False,Visible:False,Sort:None,Position:19,Type:0|Column#41=Name:Typ obudowy,Fixed:False,Metric:False,Visible:False,Sort:None,Position:92,Type:0|Column#42=Name:Part Description,Fixed:False,Metric:False,Visible:False,Sort:None,Position:67,Type:0|Column#43=Name:Packing,Fixed:False,Metric:False,Visible:False,Sort:None,Position:65,Type:0|Column#44=Name:ComponentLink3URL,Fixed:False,Metric:False,Visible:False,Sort:None,Position:29,Type:0|Column#45=Name:Polarity,Fixed:False,Metric:False,Visible:False,Sort:None,Position:71,Type:0|Column#46=Name:Resistance,Fixed:False,Metric:False,Visible:False,Sort:None,Position:75,Type:0|Column#47=Name:Number of Outputs,Fixed:False,Metric:False,Visible:False,Sort:None,Position:55,Type:0|Column#48=Name:Pin Count,Fixed:False,Metric:False,Visible:False,Sort:None,Position:70,Type:0|Column#49=Name:Opis,Fixed:False,Metric:False,Visible:False,Sort:None,Position:56,Type:0|Column#50=Name:Name,Fixed:False,Metric:False,Visible:False,Sort:None,Position:54,Type:0|Column#51=Name:Supplier 1,Fixed:False,Metric:False,Visible:False,Sort:None,Position:81,Type:0|Column#52=Name:Tolerance,Fixed:False,Metric:False,Visible:False,Sort:None,Position:91,Type:0|Column#53=Name:Table,Fixed:False,Metric:False,Visible:False,Sort:None,Position:89,Type:0|Column#54=Name:Switching Frequency,Fixed:False,Metric:False,Visible:False,Sort:None,Position:87,Type:0|Column#55=Name:ComponentHeight,Fixed:False,Metric:False,Visible:False,Sort:None,Position:23,Type:0|Column#56=Name:Device,Fixed:False,Metric:False,Visible:False,Sort:None,Position:32,Type:0|Column#57=Name:Supplier Part Number 1,Fixed:False,Metric:False,Visible:False,Sort:None,Position:85,Type:0|Column#58=Name:Forward Voltage,Fixed:False,Metric:False,Visible:False,Sort:None,Position:34,Type:0|Column#59=Name:ComponentLink2URL,Fixed:False,Metric:False,Visible:False,Sort:None,Position:27,Type:0|Column#60=Name:Forward current,Fixed:False,Metric:False,Visible:False,Sort:None,Position:33,Type:0|Column#61=Name:Colour,Fixed:False,Metric:False,Visible:False,Sort:None,Position:21,Type:0|Column#62=Name:Manufacturer,Fixed:False,Metric:False,Visible:False,Sort:None,Position:41,Type:0|Column#63=Name:Supplier 2,Fixed:False,Metric:False,Visible:False,Sort:None,Position:82,Type:0|Column#64=Name:Synchronous Rectifier,Fixed:False,Metric:False,Visible:False,Sort:None,Position:88,Type:0|Column#65=Name:Socket,Fixed:False,Metric:False,Visible:False,Sort:None,Position:79,Type:0|Column#66=Name:RoHS,Fixed:False,Metric:False,Visible:False,Sort:None,Position:76,Type:0|Column#67=Name:Min Output Voltage,Fixed:False,Metric:False,Visible:False,Sort:None,Position:49,Type:0|Column#68=Name:Quiescent Current,Fixed:False,Metric:False,Visible:False,Sort:None,Position:73,Type:0|Column#69=Name:PartNumber,Fixed:False,Metric:False,Visible:False,Sort:None,Position:69,Type:0|Column#70=Name:Max Input Voltage,Fixed:False,Metric:False,Visible:False,Sort:None,Position:44,Type:0|Column#71=Name:Output Configuration,Fixed:False,Metric:False,Visible:False,Sort:None,Position:57,Type:0|Column#72=Name:Manufacturer Part No,Fixed:False,Metric:False,Visible:False,Sort:None,Position:42,Type:0|Column#73=Name:Author,Fixed:False,Metric:False,Visible:False,Sort:None,Position:16,Type:0|Column#74=Name:ComponentLink2Description,Fixed:False,Metric:False,Visible:False,Sort:None,Position:26,Type:0|Column#75=Name:Lead Free,Fixed:False,Metric:False,Visible:False,Sort:None,Position:40,Type:0|Column#76=Name:Supplier Link,Fixed:False,Metric:False,Visible:False,Sort:None,Position:83,Type:0|Column#77=Name:Component Type,Fixed:False,Metric:False,Visible:False,Sort:None,Position:22,Type:0|Column#78=Name:Temperature Coefficient,Fixed:False,Metric:False,Visible:False,Sort:None,Position:90,Type:0|Column#79=Name:IC Continuous (A),Fixed:False,Metric:False,Visible:False,Sort:None,Position:37,Type:0|Column#80=Name:PackageDescription,Fixed:False,Metric:False,Visible:False,Sort:None,Position:61,Type:0|Column#81=Name:Output Type,Fixed:False,Metric:False,Visible:False,Sort:None,Position:59,Type:0|Column#82=Name:ComponentLink1URL,Fixed:False,Metric:False,Visible:False,Sort:None,Position:25,Type:0|Column#83=Name:Rated Current,Fixed:False,Metric:False,Visible:False,Sort:None,Position:74,Type:0|Column#84=Name:Capacitance,Fixed:False,Metric:False,Visible:False,Sort:None,Position:17,Type:0|Column#85=Name:Package,Fixed:False,Metric:False,Visible:False,Sort:None,Position:60,Type:0|Column#86=Name:PackageReference,Fixed:False,Metric:False,Visible:False,Sort:None,Position:62,Type:0|Column#87=Name:Supplier Part No,Fixed:False,Metric:False,Visible:False,Sort:None,Position:84,Type:0|Column#88=Name:Output Current,Fixed:False,Metric:False,Visible:False,Sort:None,Position:58,Type:0|Column#89=Name:LatestRevisionDate,Fixed:False,Metric:False,Visible:False,Sort:None,Position:39,Type:0|Column#90=Name:Wartość,Fixed:False,Metric:False,Visible:False,Sort:None,Position:94,Type:0|Column#91=Name:ComponentLink1Description,Fixed:False,Metric:False,Visible:False,Sort:None,Position:24,Type:0|Column#92=Name:Parameter 1,Fixed:False,Metric:False,Visible:False,Sort:None,Position:66,Type:0|Column#93=Name:DatasheetVersion,Fixed:False,Metric:False,Visible:False,Sort:None,Position:31,Type:0|Column#94=Name:PackageVersion,Fixed:False,Metric:False,Visible:False,Sort:None,Position:63,Type:0|Column#95=Name:Manufacturer Part Number,Fixed:False,Metric:False,Visible:False,Sort:None,Position:43,Type:0|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
 OutputType3=Test Points For Assembly
 OutputName3=Test Point Report
 OutputDocumentPath3=
@@ -556,22 +640,22 @@ Name=Fabrication Outputs
 Description=
 TargetPrinter=Lexmark MS410 Series
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
-OutputType1=Board Stack Report
-OutputName1=Report Board Stack
+OutputType1=CompositeDrill
+OutputName1=Composite Drill Drawing
 OutputDocumentPath1=
-OutputVariantName1=
+OutputVariantName1=[No Variations]
 OutputDefault1=0
 PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-OutputType2=CompositeDrill
-OutputName2=Composite Drill Drawing
+OutputType2=Drill
+OutputName2=Drill Drawing/Guides
 OutputDocumentPath2=
 OutputVariantName2=[No Variations]
 OutputDefault2=0
 PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-OutputType3=Drill
-OutputName3=Drill Drawing/Guides
+OutputType3=Board Stack Report
+OutputName3=Report Board Stack
 OutputDocumentPath3=
-OutputVariantName3=[No Variations]
+OutputVariantName3=
 OutputDefault3=0
 PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
 OutputType4=Final
@@ -580,48 +664,56 @@ OutputDocumentPath4=
 OutputVariantName4=[No Variations]
 OutputDefault4=0
 PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-OutputType5=Gerber
-OutputName5=Gerber Files
+OutputType5=Gerber X2
+OutputName5=Gerber X2 Files
 OutputDocumentPath5=
 OutputVariantName5=[No Variations]
 OutputDefault5=0
-OutputType6=Gerber X2
-OutputName6=Gerber X2 Files
+OutputType6=ODB
+OutputName6=ODB++ Files
 OutputDocumentPath6=
 OutputVariantName6=[No Variations]
 OutputDefault6=0
-OutputType7=IPC2581
-OutputName7=IPC-2581 Files
+OutputType7=Mask
+OutputName7=Solder/Paste Mask Prints
 OutputDocumentPath7=
 OutputVariantName7=[No Variations]
 OutputDefault7=0
-OutputType8=Mask
-OutputName8=Solder/Paste Mask Prints
+PageOptions7=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
+OutputType8=NC Drill
+OutputName8=NC Drill Files
 OutputDocumentPath8=
-OutputVariantName8=[No Variations]
+OutputVariantName8=
 OutputDefault8=0
-PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-OutputType9=NC Drill
-OutputName9=NC Drill Files
+Configuration8_Name1=ForceUpdateSettings
+Configuration8_Item1=False
+Configuration8_Name2=OutputConfigurationParameter1
+Configuration8_Item2=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|GenerateSeparateViaTypeFiles=False|GenerateToolsByDrillSymbols=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=KeepLeadingAndTrailingZeroes|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
+OutputType9=IPC2581
+OutputName9=IPC-2581 Files
 OutputDocumentPath9=
-OutputVariantName9=
+OutputVariantName9=[No Variations]
 OutputDefault9=0
-OutputType10=ODB
-OutputName10=ODB++ Files
+OutputType10=Plane
+OutputName10=Power-Plane Prints
 OutputDocumentPath10=
 OutputVariantName10=[No Variations]
 OutputDefault10=0
-OutputType11=Plane
-OutputName11=Power-Plane Prints
+PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
+OutputType11=Test Points
+OutputName11=Test Point Report
 OutputDocumentPath11=
-OutputVariantName11=[No Variations]
+OutputVariantName11=
 OutputDefault11=0
-PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-OutputType12=Test Points
-OutputName12=Test Point Report
+OutputType12=Gerber
+OutputName12=Gerber Files
 OutputDocumentPath12=
-OutputVariantName12=
+OutputVariantName12=[No Variations]
 OutputDefault12=0
+Configuration12_Name1=ForceUpdateSettings
+Configuration12_Item1=False
+Configuration12_Name2=OutputConfigurationParameter1
+Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|BoardID=QNFQTMGP|CentrePlots=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=500000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=False|GenerateDRCRulesFile=False|GenerateReliefShapes=True|GenerateReports=True|GerberUnit=Metric|GerberUnit=Metric|IncludeUnconnectedMidLayerPads=True|LayerClassesMirror.Set= |LayerClassesPlot.Set= |LeadingAndTrailingZeroesMode=KeepLeadingAndTrailingZeroes|MaxApertureSize=2500000|MergePadAndRegion=False|MinusApertureTolerance=50|MinusApertureTolerance=50|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NoRegularPolygons=False|NumberOfDecimals=4|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray,16777217~1,16842753~1,16842754~1,16842751~1,16973830~1,16973831~1,16973834~1,16973835~1,16973832~1,16973833~1|PlotBoardProfile=True|PlotBoardProfileFileName=imbuelight_stair_controller.GM|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=50|PlusApertureTolerance=50|Record=GerberView|SoftwareArcs=False|Sorted=False|Sorted=False|UncheckPlotDrillDrawingLayerPair0_Backdrill=False|UncheckPlotDrillDrawingLayerPair0_Checked=False|UncheckPlotDrillDrawingLayerPair0_DrillType=Regular|UncheckPlotDrillDrawingLayerPair0_FileName=imbuelight_stair_controller.GD1|UncheckPlotDrillDrawingLayerPair0_HighLayer=Bottom Layer|UncheckPlotDrillDrawingLayerPair0_LowLayer=Top Layer|UncheckPlotDrillGuideLayerPair0_Backdrill=False|UncheckPlotDrillGuideLayerPair0_Checked=False|UncheckPlotDrillGuideLayerPair0_DrillType=Regular|UncheckPlotDrillGuideLayerPair0_FileName=imbuelight_stair_controller.GG1|UncheckPlotDrillGuideLayerPair0_HighLayer=Bottom Layer|UncheckPlotDrillGuideLayerPair0_LowLayer=Top Layer|UserLayerName.Caption0=imbuelight_stair_controller.GM23|UserLayerName.Caption1=imbuelight_stair_controller.GTP|UserLayerName.Caption10=imbuelight_stair_controller.GP2|UserLayerName.Caption11=imbuelight_stair_controller.GM6|UserLayerName.Caption12=imbuelight_stair_controller.GM16|UserLayerName.Caption13=imbuelight_stair_controller.GBL|UserLayerName.Caption14=imbuelight_stair_controller.GM5|UserLayerName.Caption15=imbuelight_stair_controller.GM15|UserLayerName.Caption16=imbuelight_stair_controller.GM14|UserLayerName.Caption17=imbuelight_stair_controller.GTL|UserLayerName.Caption18=imbuelight_stair_controller.GBO|UserLayerName.Caption19=imbuelight_stair_controller.GPT|UserLayerName.Caption2=imbuelight_stair_controller.GTO|UserLayerName.Caption20=imbuelight_stair_controller.GM13|UserLayerName.Caption21=imbuelight_stair_controller.GP1|UserLayerName.Caption22=imbuelight_stair_controller.GM9|UserLayerName.Caption23=imbuelight_stair_controller.GM11|UserLayerName.Caption24=imbuelight_stair_controller.GM1|UserLayerName.Caption25=imbuelight_stair_controller.GM24|UserLayerName.Caption26=imbuelight_stair_controller.GM20|UserLayerName.Caption27=imbuelight_stair_controller.GBP|UserLayerName.Caption3=imbuelight_stair_controller.GTS|UserLayerName.Caption4=imbuelight_stair_controller.GM4|UserLayerName.Caption5=imbuelight_stair_controller.GM2|UserLayerName.Caption6=imbuelight_stair_controller.GKO|UserLayerName.Caption7=imbuelight_stair_controller.GPB|UserLayerName.Caption8=imbuelight_stair_controller.GM10|UserLayerName.Caption9=imbuelight_stair_controller.GBS|UserLayerName.Count=28|UserLayerName.Layer0=16908311|UserLayerName.Layer1=16973832|UserLayerName.Layer10=16842754|UserLayerName.Layer11=16908294|UserLayerName.Layer12=16908304|UserLayerName.Layer13=16842751|UserLayerName.Layer14=16908293|UserLayerName.Layer15=16908303|UserLayerName.Layer16=16908302|UserLayerName.Layer17=16777217|UserLayerName.Layer18=16973831|UserLayerName.Layer19=16973848|UserLayerName.Layer2=16973830|UserLayerName.Layer20=16908301|UserLayerName.Layer21=16842753|UserLayerName.Layer22=16908297|UserLayerName.Layer23=16908299|UserLayerName.Layer24=16908289|UserLayerName.Layer25=16908312|UserLayerName.Layer26=16908308|UserLayerName.Layer27=16973833|UserLayerName.Layer3=16973834|UserLayerName.Layer4=16908292|UserLayerName.Layer5=16908290|UserLayerName.Layer6=16973837|UserLayerName.Layer7=16973849|UserLayerName.Layer8=16908298|UserLayerName.Layer9=16973835|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
 
 [OutputGroup6]
 Name=Report Outputs
@@ -634,6 +726,20 @@ OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
 PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
+Configuration1_Name1=ColumnNameFormat
+Configuration1_Item1=CaptionAsName
+Configuration1_Name2=ForceUpdateSettings
+Configuration1_Item2=False
+Configuration1_Name3=General
+Configuration1_Item3=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration1_Name4=GroupOrder
+Configuration1_Item4=Comment=True|Footprint=True
+Configuration1_Name5=SortOrder
+Configuration1_Item5=Designator=Up
+Configuration1_Name6=VisibleOrder
+Configuration1_Item6=Description=120|Designator=120|Quantity=120|Supplier 1=100|Supplier Part Number 1=185
+Configuration1_Name7=VisibleOrder_Flat
+Configuration1_Item7=Description=120|Designator=120|Quantity=120|Supplier 1=100|Supplier Part Number 1=185
 OutputType2=BOM_ReportCompare
 OutputName2=BOM Compare
 OutputDocumentPath2=

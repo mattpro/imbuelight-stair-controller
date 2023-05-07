@@ -1,0 +1,10 @@
+Board Information Report
+Filename     : D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
+Date         : 04.05.2023
+Time         : 22:47:23
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 3818.897milsx3917.323mils
+    Components on board, 275
+count : 2

@@ -1,0 +1,4 @@
+Layer Pairs Export File for PCB: D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=imbuelight_stair_controller-roundholes.txt|DrillLayers=gtl,gp1,gp2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=imbuelight_stair_controller-slotholes.txt|DrillLayers=gtl,gp1,gp2,gbl
+LayersSetName=Top_Bot_Rect_Holes|DrillFile=imbuelight_stair_controller-rectholes.txt|DrillLayers=gtl,gp1,gp2,gbl

@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: imbuelight_stair_controller.PcbDoc   05.05.2023  13:36:47
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : imbuelight_stair_controller-RoundHoles.TXT
+ASCII SlotHoles File : imbuelight_stair_controller-SlotHoles.TXT
+ASCII RectHoles File : imbuelight_stair_controller-RectHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.2mm (8mil)                                              Round             203       PTH        1355.05mm (53.35inch)
+T2      0.381mm (15mil)                                           Round             3         PTH        28.13mm (1.11inch)
+T3      0.4mm (16mil)                                             Round             205       PTH        681.80mm (26.84inch)
+T4      0.5mm (20mil)                                             Slot              2         PTH        14.64mm (0.58inch)
+T5      1mm (39mil)                                               Round             6         PTH        29.96mm (1.18inch)
+T6      1mm (39mil)                                               Rectangle         3         PTH        29.06mm (1.14inch)
+T7      1.2mm (47mil)                                             Round             68        PTH        605.89mm (23.85inch)
+T8      3.5mm (138mil)                                            Slot              4         PTH        156.54mm (6.16inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              494
+
+Total Processing Time (hh:mm:ss) : 00:00:00

@@ -1,0 +1,10 @@
+Output: Bill of Materials
+Type  : BOM
+From  : Project [imbuelight_stair_controler_ver_1.0.PrjPcb]
+   Generated File[Bill of Materials-imbuelight_stair_controler_ver_1.0.csv]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 13:36:48 On 05.05.2023
