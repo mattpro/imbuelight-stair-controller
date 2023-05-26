@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Pico Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            // This may need to be arm-none-eabi-gdb depending on your system
+            //"gdbPath" : "arm-none-eabi-gdb",
+            "gdbPath" : "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.2 mpacbti-rel1/bin/arm-none-eabi-gdb.exe",
+            "device": "RP2040",
+            "configFiles": [
+                "interface/cmsis-dap.cfg",
+                "target/rp2040.cfg"
+            ],
+            "svdFile": "D:/LocalRepo/ImbueLight/imbuelight-stair-controller/firmware/pico-sdk/src/rp2040/hardware_regs/rp2040.svd",
+            // Work around for stopping at main on restart
+            "runToEntryPoint": "main",
+            "postRestartCommands": [
+                "break main",
+                "continue"
+            ],
+            "searchDir": ["C:/tools/openocd/scripts"], 
+        }
+
+    ]
+}

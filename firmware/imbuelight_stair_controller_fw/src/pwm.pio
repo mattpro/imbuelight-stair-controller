@@ -21,11 +21,12 @@ skip:
     jmp y-- countloop      ; Loop until Y hits 0, then pull a fresh PWM value from FIFO
 
 % c-sdk {
-static inline void pwm_program_init(PIO pio, uint sm, uint offset, uint pin) {
+static inline void pwm_program_init(PIO pio, uint sm, uint offset, uint clk_div, uint pin) {
    pio_gpio_init(pio, pin);
    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
    pio_sm_config c = pwm_program_get_default_config(offset);
    sm_config_set_sideset_pins(&c, pin);
+   sm_config_set_clkdiv(&c, clk_div);
    pio_sm_init(pio, sm, offset, &c);
 }
 %}

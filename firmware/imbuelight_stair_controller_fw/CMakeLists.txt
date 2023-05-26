@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 include(pico_sdk_import.cmake)
 include(pico_extras_import_optional.cmake)
-include(/mnt/d/LocalRepo/ImbueLight/imbuelight-stair-controller/firmware/pico-sdk/tools/CMakeLists.txt)
+#include(/mnt/d/LocalRepo/ImbueLight/imbuelight-stair-controller/firmware/pico-sdk/tools/CMakeLists.txt)
 
 project(imbuelight_stair_controller C CXX ASM)
 set(CMAKE_C_STANDARD 11)
@@ -15,6 +15,9 @@ pico_sdk_init()
 add_executable(${PROJECT_NAME}
     src/main.c  
     src/pwm.c
+    src/oled/ssd1306_fonts.c
+    src/oled/ssd1306.c
+    src/pwm_pio.c
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -22,6 +25,7 @@ target_link_libraries(${PROJECT_NAME}
     hardware_pio
     hardware_pwm
     pico_cyw43_arch_none
+    hardware_i2c
 )
 
 add_compile_options(-Wall
@@ -29,6 +33,9 @@ add_compile_options(-Wall
         -Wno-unused-function # we have some for the docs that aren't called
         -Wno-maybe-uninitialized
         )
+
+pico_enable_stdio_usb(${PROJECT_NAME} 0)
+pico_enable_stdio_uart(${PROJECT_NAME} 1)
 
 pico_add_extra_outputs(${PROJECT_NAME})
 pico_generate_pio_header(${PROJECT_NAME} 

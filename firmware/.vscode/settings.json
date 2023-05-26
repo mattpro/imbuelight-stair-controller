@@ -1,7 +1,36 @@
-{
+{    
+    "cmake.environment": {
+            "PICO_SDK_PATH":"../../pico-sdk"
+    },
+
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
     "cmake.sourceDirectory": "${workspaceFolder}/imbuelight_stair_controller_fw",
     "files.associations": {
-        "cyw43_arch.h": "c"
-    }
+        "cyw43_arch.h": "c",
+        "ssd1306_conf.h": "c",
+        "pwm.pio.h": "c"
+    },
+
+    
+
+    // These settings tweaks to the cmake plugin will ensure
+    // that you debug using cortex-debug instead of trying to launch
+    // a Pico binary on the host
+    "cmake.statusbar.advanced": {
+        "debug": {
+            "visibility": "hidden"
+        },
+        "launch": {
+            "visibility": "hidden"
+        },
+        "build": {
+            "visibility": "default"
+        },
+        "buildTarget": {
+            "visibility": "hidden"
+        }
+    },
+    "cmake.buildBeforeRun": false,
+    "cortex-debug.openocdPath": "C:/tools/openocd/openocd.exe"
+
 }

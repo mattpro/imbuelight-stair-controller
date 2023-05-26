@@ -19,6 +19,11 @@ cd build
 cmake ..
 ```
 
+Example from WSL terminal:
+```
+/mnt/d/LocalRepo/ImbueLight/imbuelight-stair-controller/firmware/imbuelight_stair_controller_fw/build$ cmake ..
+```
+
 4. Build project
 
 ```
