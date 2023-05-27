@@ -39,7 +39,7 @@ typedef struct {
 settings_t settings;
 
 stair_effect_t effect_1;
-
+stair_effect_t effect_2;
 
 
 struct repeating_timer main_timer;
@@ -48,8 +48,84 @@ bool main_timer_flag = false;
 uint16_t counter = 0;
 
 
+void effect_1_start(effect_dir_t dir)
+{
+    effect_1.dir = dir;
+    effect_1.step = 0;
+    effect_1.enable = true;
+}
+
+void effect_2_start(effect_dir_t dir)
+{
+    effect_2.dir = dir;
+    effect_2.step = 0; 
+    effect_2.enable = true;
+}
+
+
 bool main_timer_callback(struct repeating_timer *t) 
 {
+
+
+    if ( effect_1.enable )
+    {
+        uint8_t step_number;
+        effect_1.step += effect_1.increment_step;
+        for ( int i = 0 ; i < 24 ; i ++ )
+        {
+            if ( effect_1.dir == DIR_UP_TO_DOW )
+            {
+                step_number = i;
+            }
+            else
+            {
+                step_number = settings.num_of_stairs - i;
+            }
+
+            PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  -effect_1.wide*i + effect_1.step);
+        }
+
+        // End effect condition
+        if ( ( -effect_1.wide*settings.last_stair + effect_1.step ) >= settings.max_pwm_duty )
+        {
+            effect_1.enable = false;
+
+        }
+    }
+
+
+    if ( effect_2.enable )
+    {
+        uint8_t step_number;
+        effect_2.step += effect_2.increment_step;
+        for ( int i = 0 ; i < 24 ; i ++ )
+        {
+            if ( effect_2.dir == DIR_UP_TO_DOW )
+            {
+                step_number = i;
+            }
+            else
+            {
+                step_number = settings.num_of_stairs - i;
+            }
+
+            PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  settings.max_pwm_duty - ( -effect_2.wide*i + effect_2.step ) );
+        }
+
+        // // End effect condition
+        // if ( ( -effect_2.wide*settings.last_stair + effect_2.step ) >= settings.max_pwm_duty )
+        // {
+        //     effect_2.enable = false;
+        // }
+    }
+
+
+
+
+
+
+
+
     main_timer_flag = true;
     return true;
 }
@@ -75,6 +151,11 @@ int main()
     effect_1.wide = 1000;
     effect_1.dir = DIR_DOWN_TO_UP;
 
+    effect_2.enable = false;
+    effect_2.increment_step = 10;
+    effect_2.wide = 1000;
+    effect_2.dir = DIR_DOWN_TO_UP;
+
     gpio_init(PWM_CHANNEL_1_PIN);
     gpio_set_dir(PWM_CHANNEL_1_PIN, GPIO_OUT);
    
@@ -91,12 +172,20 @@ int main()
     PWM_HW_init();
     PWM_PIO_init();
 
-    add_repeating_timer_us(1000, main_timer_callback, NULL, &main_timer);
+    add_repeating_timer_us(200, main_timer_callback, NULL, &main_timer);
 
 
 
     while(1)
     {
+
+        effect_1_start(DIR_UP_TO_DOW);
+        sleep_ms(1500);
+        effect_1.enable = false;
+        //effect_1.dir ^= 1;
+        effect_2_start(DIR_UP_TO_DOW);
+        sleep_ms(1500);
+        effect_2.enable = false;
         if ( main_timer_flag )
         {
             main_timer_flag = false;    
@@ -107,47 +196,6 @@ int main()
             // }
     
             // counter += 1;
-
-            if ( effect_1.enable )
-            {
-                uint8_t step_number;
-                effect_1.step += effect_1.increment_step;
-                for ( int i = 0 ; i < 24 ; i ++ )
-                {
-                    if ( effect_1.dir == DIR_UP_TO_DOW )
-                    {
-                        step_number = i;
-                    }
-                    else
-                    {
-                        step_number = settings.num_of_stairs - i;
-                    }
-
-                    PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  -effect_1.wide*i + effect_1.step);
-                }
-
-                // End effect condition
-                if ( ( -effect_1.wide*settings.last_stair + effect_1.step ) >= settings.max_pwm_duty )
-                {
-                    //effect_1.enable = false;
-                    effect_1.dir ^= 1;
-                    effect_1.step = 0;
-                }
-
-            }
-            else
-            {
-                for ( int i = 0 ; i < 24 ; i ++ )
-                {
-                    PWM_set_duty_in_channel_with_gamma((pwm_channel_t)i,  0 );
-                }
-            }
-
-            
-
-
-
-
 
 
 
