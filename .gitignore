@@ -7,3 +7,5 @@ Thumbs.db
 *.log
 [Bb]uild*/
 
+/hardware/imbuelight_move_detection_ver_1.0/__Previews/*
+/hardware/imbuelight_move_detection_ver_1.0/History/*
