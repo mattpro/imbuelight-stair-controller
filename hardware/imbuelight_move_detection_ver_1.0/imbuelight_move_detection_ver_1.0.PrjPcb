@@ -99,6 +99,87 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document4]
+DocumentPath=imbuelight_move_detection — panel.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=SZCGKMRE
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\Design Rule Check - imbuelight_move_detection.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.REP
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for imbuelight_move_detection_ver_1.0\imbuelight_stair_controller.GM
+DItemRevisionGUID=
+
 [Parameter1]
 Name=My_Author
 Value=Mateusz Gancarczyk
@@ -468,7 +549,7 @@ OutputDefault8=0
 Configuration8_Name1=ForceUpdateSettings
 Configuration8_Item1=False
 Configuration8_Name2=OutputConfigurationParameter1
-Configuration8_Item2=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|GenerateSeparateViaTypeFiles=False|GenerateToolsByDrillSymbols=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=KeepLeadingAndTrailingZeroes|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
+Configuration8_Item2=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|GenerateSeparateViaTypeFiles=False|GenerateToolsByDrillSymbols=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=KeepLeadingAndTrailingZeroes|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.PcbDoc
 OutputType9=IPC2581
 OutputName9=IPC-2581 Files
 OutputDocumentPath9=
@@ -493,7 +574,7 @@ OutputDefault12=0
 Configuration12_Name1=ForceUpdateSettings
 Configuration12_Item1=False
 Configuration12_Name2=OutputConfigurationParameter1
-Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|BoardID=QNFQTMGP|CentrePlots=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=500000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=False|GenerateDRCRulesFile=False|GenerateReliefShapes=True|GenerateReports=True|GerberUnit=Metric|GerberUnit=Metric|IncludeUnconnectedMidLayerPads=True|LayerClassesMirror.Set= |LayerClassesPlot.Set= |LeadingAndTrailingZeroesMode=KeepLeadingAndTrailingZeroes|MaxApertureSize=2500000|MergePadAndRegion=False|MinusApertureTolerance=50|MinusApertureTolerance=50|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NoRegularPolygons=False|NumberOfDecimals=4|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray,16777217~1,16842753~1,16842754~1,16842751~1,16973830~1,16973831~1,16973834~1,16973835~1,16973832~1,16973833~1|PlotBoardProfile=True|PlotBoardProfileFileName=imbuelight_stair_controller.GM|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=50|PlusApertureTolerance=50|Record=GerberView|SoftwareArcs=False|Sorted=False|Sorted=False|UncheckPlotDrillDrawingLayerPair0_Backdrill=False|UncheckPlotDrillDrawingLayerPair0_Checked=False|UncheckPlotDrillDrawingLayerPair0_DrillType=Regular|UncheckPlotDrillDrawingLayerPair0_FileName=imbuelight_stair_controller.GD1|UncheckPlotDrillDrawingLayerPair0_HighLayer=Bottom Layer|UncheckPlotDrillDrawingLayerPair0_LowLayer=Top Layer|UncheckPlotDrillGuideLayerPair0_Backdrill=False|UncheckPlotDrillGuideLayerPair0_Checked=False|UncheckPlotDrillGuideLayerPair0_DrillType=Regular|UncheckPlotDrillGuideLayerPair0_FileName=imbuelight_stair_controller.GG1|UncheckPlotDrillGuideLayerPair0_HighLayer=Bottom Layer|UncheckPlotDrillGuideLayerPair0_LowLayer=Top Layer|UserLayerName.Caption0=imbuelight_stair_controller.GM23|UserLayerName.Caption1=imbuelight_stair_controller.GTP|UserLayerName.Caption10=imbuelight_stair_controller.GP2|UserLayerName.Caption11=imbuelight_stair_controller.GM6|UserLayerName.Caption12=imbuelight_stair_controller.GM16|UserLayerName.Caption13=imbuelight_stair_controller.GBL|UserLayerName.Caption14=imbuelight_stair_controller.GM5|UserLayerName.Caption15=imbuelight_stair_controller.GM15|UserLayerName.Caption16=imbuelight_stair_controller.GM14|UserLayerName.Caption17=imbuelight_stair_controller.GTL|UserLayerName.Caption18=imbuelight_stair_controller.GBO|UserLayerName.Caption19=imbuelight_stair_controller.GPT|UserLayerName.Caption2=imbuelight_stair_controller.GTO|UserLayerName.Caption20=imbuelight_stair_controller.GM13|UserLayerName.Caption21=imbuelight_stair_controller.GP1|UserLayerName.Caption22=imbuelight_stair_controller.GM9|UserLayerName.Caption23=imbuelight_stair_controller.GM11|UserLayerName.Caption24=imbuelight_stair_controller.GM1|UserLayerName.Caption25=imbuelight_stair_controller.GM24|UserLayerName.Caption26=imbuelight_stair_controller.GM20|UserLayerName.Caption27=imbuelight_stair_controller.GBP|UserLayerName.Caption3=imbuelight_stair_controller.GTS|UserLayerName.Caption4=imbuelight_stair_controller.GM4|UserLayerName.Caption5=imbuelight_stair_controller.GM2|UserLayerName.Caption6=imbuelight_stair_controller.GKO|UserLayerName.Caption7=imbuelight_stair_controller.GPB|UserLayerName.Caption8=imbuelight_stair_controller.GM10|UserLayerName.Caption9=imbuelight_stair_controller.GBS|UserLayerName.Count=28|UserLayerName.Layer0=16908311|UserLayerName.Layer1=16973832|UserLayerName.Layer10=16842754|UserLayerName.Layer11=16908294|UserLayerName.Layer12=16908304|UserLayerName.Layer13=16842751|UserLayerName.Layer14=16908293|UserLayerName.Layer15=16908303|UserLayerName.Layer16=16908302|UserLayerName.Layer17=16777217|UserLayerName.Layer18=16973831|UserLayerName.Layer19=16973848|UserLayerName.Layer2=16973830|UserLayerName.Layer20=16908301|UserLayerName.Layer21=16842753|UserLayerName.Layer22=16908297|UserLayerName.Layer23=16908299|UserLayerName.Layer24=16908289|UserLayerName.Layer25=16908312|UserLayerName.Layer26=16908308|UserLayerName.Layer27=16973833|UserLayerName.Layer3=16973834|UserLayerName.Layer4=16908292|UserLayerName.Layer5=16908290|UserLayerName.Layer6=16973837|UserLayerName.Layer7=16973849|UserLayerName.Layer8=16908298|UserLayerName.Layer9=16973835|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_stair_controler_ver_1.0\imbuelight_stair_controller.PcbDoc
+Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|BoardID=SZCGKMRE|CentrePlots=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=500000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=False|GenerateDRCRulesFile=False|GenerateReliefShapes=True|GenerateReports=True|GerberUnit=Metric|GerberUnit=Metric|IncludeUnconnectedMidLayerPads=True|LayerClassesMirror.Set= |LayerClassesPlot.Set= |LeadingAndTrailingZeroesMode=KeepLeadingAndTrailingZeroes|MaxApertureSize=2500000|MergePadAndRegion=False|MinusApertureTolerance=50|MinusApertureTolerance=50|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NoRegularPolygons=False|NumberOfDecimals=4|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray,16777217~1,16842751~1,16973830~1,16973831~1,16973834~1,16973835~1,16973832~1,16973833~1|PlotBoardProfile=True|PlotBoardProfileFileName=imbuelight_stair_controller.GM|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=50|PlusApertureTolerance=50|Record=GerberView|SoftwareArcs=False|Sorted=False|Sorted=False|UncheckPlotDrillDrawingLayerPair0_Backdrill=False|UncheckPlotDrillDrawingLayerPair0_Checked=False|UncheckPlotDrillDrawingLayerPair0_DrillType=Regular|UncheckPlotDrillDrawingLayerPair0_FileName=imbuelight_move_detection — panel.GD1|UncheckPlotDrillDrawingLayerPair0_HighLayer=Bottom Layer|UncheckPlotDrillDrawingLayerPair0_LowLayer=Top Layer|UncheckPlotDrillGuideLayerPair0_Backdrill=False|UncheckPlotDrillGuideLayerPair0_Checked=False|UncheckPlotDrillGuideLayerPair0_DrillType=Regular|UncheckPlotDrillGuideLayerPair0_FileName=imbuelight_move_detection — panel.GG1|UncheckPlotDrillGuideLayerPair0_HighLayer=Bottom Layer|UncheckPlotDrillGuideLayerPair0_LowLayer=Top Layer|UserLayerName.Caption0=imbuelight_move_detection — panel.GM23|UserLayerName.Caption1=imbuelight_move_detection — panel.GTP|UserLayerName.Caption10=imbuelight_move_detection — panel.GM16|UserLayerName.Caption11=imbuelight_move_detection — panel.GM6|UserLayerName.Caption12=imbuelight_move_detection — panel.GBL|UserLayerName.Caption13=imbuelight_move_detection — panel.GM5|UserLayerName.Caption14=imbuelight_move_detection — panel.GM15|UserLayerName.Caption15=imbuelight_move_detection — panel.GM14|UserLayerName.Caption16=imbuelight_move_detection — panel.GTL|UserLayerName.Caption17=imbuelight_move_detection — panel.GBO|UserLayerName.Caption18=imbuelight_move_detection — panel.GPT|UserLayerName.Caption19=imbuelight_move_detection — panel.GM13|UserLayerName.Caption2=imbuelight_move_detection — panel.GTO|UserLayerName.Caption20=imbuelight_move_detection — panel.GM9|UserLayerName.Caption21=imbuelight_move_detection — panel.GM11|UserLayerName.Caption22=imbuelight_move_detection — panel.GM1|UserLayerName.Caption23=imbuelight_move_detection — panel.GM24|UserLayerName.Caption24=imbuelight_move_detection — panel.GM20|UserLayerName.Caption25=imbuelight_move_detection — panel.GKO|UserLayerName.Caption3=imbuelight_move_detection — panel.GTS|UserLayerName.Caption4=imbuelight_move_detection — panel.GM4|UserLayerName.Caption5=imbuelight_move_detection — panel.GM2|UserLayerName.Caption6=imbuelight_move_detection — panel.GBP|UserLayerName.Caption7=imbuelight_move_detection — panel.GPB|UserLayerName.Caption8=imbuelight_move_detection — panel.GM10|UserLayerName.Caption9=imbuelight_move_detection — panel.GBS|UserLayerName.Count=26|UserLayerName.Layer0=16908311|UserLayerName.Layer1=16973832|UserLayerName.Layer10=16908304|UserLayerName.Layer11=16908294|UserLayerName.Layer12=16842751|UserLayerName.Layer13=16908293|UserLayerName.Layer14=16908303|UserLayerName.Layer15=16908302|UserLayerName.Layer16=16777217|UserLayerName.Layer17=16973831|UserLayerName.Layer18=16973848|UserLayerName.Layer19=16908301|UserLayerName.Layer2=16973830|UserLayerName.Layer20=16908297|UserLayerName.Layer21=16908299|UserLayerName.Layer22=16908289|UserLayerName.Layer23=16908312|UserLayerName.Layer24=16908308|UserLayerName.Layer25=16973837|UserLayerName.Layer3=16973834|UserLayerName.Layer4=16908292|UserLayerName.Layer5=16908290|UserLayerName.Layer6=16973833|UserLayerName.Layer7=16973849|UserLayerName.Layer8=16908298|UserLayerName.Layer9=16973835|DocumentPath=D:\LocalRepo\ImbueLight\imbuelight-stair-controller\hardware\imbuelight_move_detection_ver_1.0\imbuelight_move_detection — panel.PcbDoc
 
 [OutputGroup6]
 Name=Report Outputs

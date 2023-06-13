@@ -1,0 +1,18 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: imbuelight_move_detection — panel.PcbDoc   13.06.2023  23:28:18
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : imbuelight_move_detection — panel-RoundHoles.TXT
+ASCII SlotHoles File : imbuelight_move_detection — panel-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.2mm (8mil)                                              Round             252       PTH        960.27mm (37.81inch)
+T2      1.2mm (47mil)                                             Round             27        PTH        277.00mm (10.91inch)
+T3      3.2mm (126mil)                                            Round             18        PTH        422.99mm (16.65inch)
+T4      2.8mm (110mil)                                            Slot              9         NPTH       512.00mm (20.16inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              306
+
+Total Processing Time (hh:mm:ss) : 00:00:00
