@@ -6,6 +6,7 @@
 #include "pwm.h"
 #include "pwm_pio.h"
 #include "config.h"
+#include "my_i2c.h"
 
 
 
@@ -140,6 +141,11 @@ int main()
     //     return -1;
     // }
 
+    stdio_init_all();
+
+    printf("############################################\r\n");
+    printf("### IMBUE LIGHT STAIR CONTROLLER VER 1.0 ###\r\n");
+    printf("############################################\r\n");
 
     settings.first_stair = 0;
     settings.last_stair = 23;
@@ -174,10 +180,25 @@ int main()
 
     add_repeating_timer_us(200, main_timer_callback, NULL, &main_timer);
 
+    I2C_init();
+
+
+    uint8_t io_state;
+    while(1)
+    {
+        io_state = read_io_expander_state();
+        printf("IO STATE: %02X\r\n", io_state);
+        sleep_ms(100);
+    }
+    
+
+
 
 
     while(1)
     {
+
+        printf("XXXX");
 
         effect_1_start(DIR_UP_TO_DOW);
         sleep_ms(1500);

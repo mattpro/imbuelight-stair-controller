@@ -18,6 +18,7 @@ add_executable(${PROJECT_NAME}
     src/oled/ssd1306_fonts.c
     src/oled/ssd1306.c
     src/pwm_pio.c
+    src/my_i2c.c
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -34,8 +35,8 @@ add_compile_options(-Wall
         -Wno-maybe-uninitialized
         )
 
-pico_enable_stdio_usb(${PROJECT_NAME} 0)
-pico_enable_stdio_uart(${PROJECT_NAME} 1)
+pico_enable_stdio_usb(${PROJECT_NAME} 1)
+pico_enable_stdio_uart(${PROJECT_NAME} 0)
 
 pico_add_extra_outputs(${PROJECT_NAME})
 pico_generate_pio_header(${PROJECT_NAME} 
