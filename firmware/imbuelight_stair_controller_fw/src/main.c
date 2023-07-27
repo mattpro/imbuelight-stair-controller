@@ -7,6 +7,7 @@
 #include "pwm_pio.h"
 #include "config.h"
 #include "my_i2c.h"
+#include "io_exp.h"
 
 
 
@@ -49,6 +50,12 @@ bool main_timer_flag = false;
 uint16_t counter = 0;
 
 
+static uint32_t io_exp_pooling_counter = 0;
+static bool io_exp_pooling_flag = false;
+
+
+
+
 void effect_1_start(effect_dir_t dir)
 {
     effect_1.dir = dir;
@@ -66,8 +73,6 @@ void effect_2_start(effect_dir_t dir)
 
 bool main_timer_callback(struct repeating_timer *t) 
 {
-
-
     if ( effect_1.enable )
     {
         uint8_t step_number;
@@ -121,14 +126,21 @@ bool main_timer_callback(struct repeating_timer *t)
     }
 
 
-
-
-
-
-
+    io_exp_pooling_counter ++;
+    if ( io_exp_pooling_counter > 5000 )
+    {
+        io_exp_pooling_flag = true;
+        io_exp_pooling_counter = 0;
+    }
 
     main_timer_flag = true;
     return true;
+}
+
+
+void sens_top_enter(void)
+{
+    effect_1_start(DIR_UP_TO_DOW);
 }
 
 
@@ -183,12 +195,16 @@ int main()
     I2C_init();
 
 
-    uint8_t io_state;
+    IO_EXP_init();
+    IO_EXP_reg_event_sens_top_cbfunc(sens_top_enter, NULL);
+
     while(1)
     {
-        io_state = read_io_expander_state();
-        printf("IO STATE: %02X\r\n", io_state);
-        sleep_ms(100);
+        if ( io_exp_pooling_flag )
+        {
+            IO_EXP_pooling();
+            io_exp_pooling_flag = false;
+        }
     }
     
 

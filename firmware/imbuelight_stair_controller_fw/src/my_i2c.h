@@ -3,11 +3,8 @@
 
 #include <stdint.h>
 
-
 void I2C_init(void);
-void I2C_write(uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size);
-void I2C_read(uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size);
-
-uint8_t read_io_expander_state(void);
+void I2C_write(uint8_t dev_add, uint8_t mem_add, uint8_t *pData, uint16_t data_size);
+void I2C_read(uint16_t dev_add, uint16_t mem_add, uint8_t *pData, uint16_t data_size);
 
 #endif

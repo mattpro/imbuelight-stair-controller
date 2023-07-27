@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME}
     src/oled/ssd1306.c
     src/pwm_pio.c
     src/my_i2c.c
+    src/io_exp.c
 )
 
 target_link_libraries(${PROJECT_NAME}
