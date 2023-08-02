@@ -1,0 +1,10 @@
+Output: Bill of Materials
+Type  : BOM
+From  : Project [imbuelight_move_detection_ver_2.0.PrjPcb]
+   Generated File[Bill of Materials-imbuelight_move_detection_ver_2.0.csv]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 13:00:04 On 02.08.2023

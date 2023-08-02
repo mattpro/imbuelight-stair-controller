@@ -1,0 +1,16 @@
+Comment,Designator,Quantity,Supplier 1,Footprint,Supplier Part Number 1
+
+"0805 1uF 20V","C1","1","","CAP_SMD_0805",""
+"0603 1uF 10V","C2, C3, C4, C5, C6","5","","CAP_SMD_0603",""
+"BAT43W-E3-08","D1","1","","SOD-123",""
+"TVS0500DRVR","D2","1","Digi-Key","FP-DRV0006A-IPC_C","296-48382-1-ND"
+"Dioda LED SMD 1206","D3","1","","LED SMD 1206",""
+"HEADER_1X3_2.54_0DEG_THT","P1","1","","HDR1X4",""
+"15EDGRC-3.5-3P","P2","1","","15EDGVC-3.5-03P-14-00A(H)",""
+"TEMT6000X01","Q1","1","","VSIL-TEMT6000X01_V",""
+"0603 10kOhm 1%","R1, R2, R4, R6, R7","5","LCSC","RES_0603","C3017715"
+"0603 10Ohm 1%","R3","1","LCSC","RES_0603","C22859"
+"0603 1kOhm 1%","R5","1","LCSC","RES_0603","C3016283"
+"MCP1804T-3302I/OT","U1","1","Digi-Key","SOT-23-5","MCP1804T-3302I/OTTR-ND"
+"VL53L0CXV0DH/1","U2","1","","FP-LGA-12-MFG",""
+"BC805M","U3","1","Digi-Key","BC805","1914-BC805MCT-ND"

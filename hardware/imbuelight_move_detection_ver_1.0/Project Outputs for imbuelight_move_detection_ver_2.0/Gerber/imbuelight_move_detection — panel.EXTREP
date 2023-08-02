@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: imbuelight_move_detection — panel.GBR   13.06.2023  23:27:44
+Gerber File Extension Report For: imbuelight_move_detection — panel.GBR   02.08.2023  12:59:44
 ------------------------------------------------------------------------------------------
 
 
@@ -14,5 +14,6 @@ Layer Extension     Layer Description
 .GBS                Bottom Solder                           
 .GBP                Bottom Paste                            
 .GBO                Bottom Overlay                          
+.GKO                Keep-Out Layer                          
 .GM                 Profile                                 
 ------------------------------------------------------------------------------------------
