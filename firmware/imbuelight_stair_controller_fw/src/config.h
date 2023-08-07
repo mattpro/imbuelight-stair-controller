@@ -7,9 +7,13 @@
 // ENUM
 typedef enum {
     DIR_DOWN_TO_UP,
-    DIR_UP_TO_DOW
+    DIR_UP_TO_DOWN
 } effect_dir_t;
 
+typedef enum {
+    TURN_ON,
+    TURN_OFF
+} turn_dir_t;
 
 
 // PINOUT

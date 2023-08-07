@@ -18,5 +18,6 @@
 void IO_EXP_init(void);
 void IO_EXP_pooling(void);
 void IO_EXP_reg_event_sens_top_cbfunc(void(*sens_top_enter)(void), void(*sens_top_exit)(void));
+void IO_EXP_reg_event_sens_bottom_cbfunc(void(*sens_bottom_enter)(void), void(*sens_bottom_exit)(void));
 
 #endif

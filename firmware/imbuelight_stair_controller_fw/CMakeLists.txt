@@ -12,6 +12,8 @@ set(PICO_BOARD "pico_w")
 
 pico_sdk_init()
 
+include_directories(src/rtt/Config src/rtt/RTT)
+
 add_executable(${PROJECT_NAME}
     src/main.c  
     src/pwm.c
@@ -20,6 +22,8 @@ add_executable(${PROJECT_NAME}
     src/pwm_pio.c
     src/my_i2c.c
     src/io_exp.c
+    src/rtt/RTT/SEGGER_RTT.c
+    src/rtt/RTT/SEGGER_RTT_printf.c
 )
 
 target_link_libraries(${PROJECT_NAME}

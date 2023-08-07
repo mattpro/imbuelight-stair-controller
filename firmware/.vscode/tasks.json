@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Flash",
+            "label": "Flash ",
             "type": "shell",
             "command": "C:/tools/openocd/openocd.exe",
             "args": [
@@ -14,6 +14,54 @@
                 "target/rp2040.cfg",
                 "-c",
                 "adapter speed 5000; program D:/LocalRepo/ImbueLight/imbuelight-stair-controller/firmware/imbuelight_stair_controller_fw/build/imbuelight_stair_controller.elf verify reset exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash J-Link",
+            "type": "shell",
+            "command": "C:/Program Files/SEGGER/JLink/JLink.exe",
+            "args": [
+                "-device",
+                "RP2040_M0_0",
+                "-if",
+                "SWD",
+                "-speed",
+                "4000",
+                "-CommandFile",
+                "${workspaceRoot}/imbuelight_stair_controller_fw/flash.jlink"
+            ],
+            "problemMatcher": []
+        }.
+        {
+            "label": "Reset J-Link",
+            "type": "shell",
+            "command": "C:/Program Files/SEGGER/JLink/JLink.exe",
+            "args": [
+                "-device",
+                "RP2040_M0_0",
+                "-if",
+                "SWD",
+                "-speed",
+                "4000",
+                "-CommandFile",
+                "${workspaceRoot}/imbuelight_stair_controller_fw/reset.jlink"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Erase J-Link",
+            "type": "shell",
+            "command": "C:/Program Files/SEGGER/JLink/JLink.exe",
+            "args": [
+                "-device",
+                "RP2040_M0_0",
+                "-if",
+                "SWD",
+                "-speed",
+                "4000",
+                "-CommandFile",
+                "${workspaceRoot}/imbuelight_stair_controller_fw/reset.jlink"
             ],
             "problemMatcher": []
         }

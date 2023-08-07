@@ -8,7 +8,21 @@
     "files.associations": {
         "cyw43_arch.h": "c",
         "ssd1306_conf.h": "c",
-        "pwm.pio.h": "c"
+        "pwm.pio.h": "c",
+        "my_i2c.h": "c",
+        "stdint.h": "c",
+        "array": "c",
+        "vector": "c",
+        "xstring": "c",
+        "xutility": "c",
+        "bit": "c",
+        "compare": "c",
+        "cstddef": "c",
+        "limits": "c",
+        "memory": "c",
+        "type_traits": "c",
+        "xtree": "c",
+        "segger_rtt.h": "c"
     },
 
     

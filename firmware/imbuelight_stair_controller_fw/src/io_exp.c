@@ -99,6 +99,28 @@ void IO_EXP_reg_event_sens_top_cbfunc(void(*sens_top_enter)(void), void(*sens_to
 }
 
 
+void IO_EXP_reg_event_sens_bottom_cbfunc(void(*sens_bottom_enter)(void), void(*sens_bottom_exit)(void))
+{
+    if(sens_bottom_enter != NULL )
+    {
+        io_expander_event._sens_bottom_enter = sens_bottom_enter;
+    }
+    else
+    {
+        io_expander_event._sens_bottom_enter = default_sens_bottom_enter;
+    }
+
+    if(sens_bottom_exit != NULL )
+    {
+        io_expander_event._sens_bottom_exit = sens_bottom_exit;
+    }
+    else
+    {
+        io_expander_event._sens_bottom_exit = default_sens_bottom_exit;
+    }
+}
+
+
 void IO_EXP_init(void)
 {
     uint8_t data = 0;

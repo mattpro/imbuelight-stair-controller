@@ -1,7 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "Pico Debug",
             "cwd": "${workspaceRoot}",
@@ -26,6 +25,5 @@
             ],
             "searchDir": ["C:/tools/openocd/scripts"], 
         }
-
     ]
 }
