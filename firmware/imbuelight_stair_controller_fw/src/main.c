@@ -42,11 +42,11 @@ typedef struct {
 
 
 
-settings_t settings;
-light_on_t light_on;
+volatile settings_t settings;
+volatile light_on_t light_on;
 
-stair_effect_t effect_1;
-stair_effect_t effect_2;
+volatile stair_effect_t effect_1;
+volatile stair_effect_t effect_2;
 
 
 
@@ -89,7 +89,9 @@ bool main_timer_callback(struct repeating_timer *t)
     if ( effect_1.enable )
     {
         uint8_t step_number;
-        effect_1.step += effect_1.increment_step;
+
+        effect_1.step += effect_1.increment_step; 
+
         for ( int i = 0 ; i < 24 ; i ++ )
         {
             if ( effect_1.dir == DIR_UP_TO_DOWN )
@@ -107,13 +109,15 @@ bool main_timer_callback(struct repeating_timer *t)
             }
             else
             {
-                PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  effect_1.wide*i - effect_1.step);
+                PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  settings.max_pwm_duty + effect_1.wide*i - effect_1.step);
             }
-            
         }
 
-        // End effect condition
-        if ( ( -effect_1.wide*settings.last_stair + effect_1.step ) >= settings.max_pwm_duty )
+        if ( ( -effect_1.wide*step_number > settings.max_pwm_duty ) &&  ( effect_1.turn_dir == TURN_ON ) )
+        {
+            effect_1.enable = false;
+        }
+        if ( ( (settings.max_pwm_duty + effect_1.wide*step_number - effect_1.step) < 0  ) &&  ( effect_1.turn_dir == TURN_OFF ) )
         {
             effect_1.enable = false;
         }
@@ -158,7 +162,7 @@ bool main_timer_callback(struct repeating_timer *t)
         light_on.light_on_counter ++;
         if ( light_on.light_on_counter > STAIR_LIGHT_ON_TIME )
         {
-            printf("Light exit\r\n");
+            SEGGER_RTT_WriteString(0,"Light exit\r\n");
             light_on.dir == DIR_UP_TO_DOWN ? effect_1_end(DIR_UP_TO_DOWN) : effect_1_end(DIR_DOWN_TO_UP);
             light_on.light_on_flag = false;
         }
@@ -175,24 +179,25 @@ bool io_exp_pool(struct repeating_timer *t)
 
 void sens_top_enter(void)
 {
-    printf("Sensor top enter\r\n");
+    SEGGER_RTT_WriteString(0,"Sensor top enter\r\n");   
+    light_on.light_on_counter = 0;
     if ( light_on.light_on_flag == false )
     {
-        printf("Light enter\r\n");
+        SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
-        light_on.light_on_counter = 0;
         light_on.dir = DIR_UP_TO_DOWN;
         effect_1_start(light_on.dir);
     }  
+
 }
 
 
 void sens_bottom_enter(void)
 {
-    printf("Sensor bottom enter\r\n");
+    SEGGER_RTT_WriteString(0,"Sensor bottom enter\r\n");
     if ( light_on.light_on_flag == false )
     {
-        printf("Light enter\r\n");
+        SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
         light_on.light_on_counter = 0;
         light_on.dir = DIR_DOWN_TO_UP;
@@ -237,8 +242,8 @@ int main()
     settings.num_of_stairs = 24;
     settings.max_pwm_duty = MAX_PWM_DUTY;
 
-    effect_1.enable = true;
-    effect_1.increment_step = 10;
+    effect_1.enable = false;
+    effect_1.increment_step = 5;
     effect_1.wide = 1000;
     effect_1.dir = DIR_DOWN_TO_UP;
 
@@ -246,7 +251,6 @@ int main()
     effect_2.increment_step = 10;
     effect_2.wide = 1000;
     effect_2.dir = DIR_DOWN_TO_UP;
-
 
    
     for( int i = 0 ; i < 20 ; i ++ )
@@ -270,15 +274,16 @@ int main()
     IO_EXP_reg_event_sens_bottom_cbfunc(sens_bottom_enter, NULL);
 
     add_repeating_timer_us(-200, main_timer_callback, NULL, &main_timer);
-    add_repeating_timer_ms(50, io_exp_pool, NULL, &io_pool_timer);
+    //add_repeating_timer_ms(-50, io_exp_pool, NULL, &io_pool_timer);
 
-    printf("Boot ok\r\n");
+    SEGGER_RTT_printf(0,"Boot ok\r\n");
 
     while(1)
     {
         if ( io_exp_pooling_flag == true)
         { 
             io_exp_pooling_flag = false;
+            SEGGER_RTT_printf(0,"pooling io exp\r\n");
             IO_EXP_pooling();
         }
     }
