@@ -1,6 +1,8 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
+#include "rtt/RTT/SEGGER_RTT.h"
+
 // SETTINGS
 #define GAMMA_FACTOR 4.0f
 

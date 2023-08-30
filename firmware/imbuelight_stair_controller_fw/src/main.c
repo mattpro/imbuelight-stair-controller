@@ -31,13 +31,13 @@ typedef struct {
 
 
 typedef struct {
-    int step;
-    bool enable;
-    effect_dir_t dir;
+    int step;                   // current effect step
+    bool enable;                // enable effect
+    effect_dir_t dir;           // direction DIR_DOWN_TO_UP or DIR_UP_TO_DOWN
     // settings
-    uint16_t increment_step;
-    uint16_t wide;
-    turn_dir_t turn_dir;
+    uint16_t increment_step;    // speed of effect
+    uint16_t wide;              // wide of effect
+    turn_dir_t turn_dir;        // if enable effect goes on or off
 } stair_effect_t;
 
 
@@ -86,6 +86,14 @@ void effect_2_start(effect_dir_t dir)
 
 bool main_timer_callback(struct repeating_timer *t) 
 {
+
+    io_exp_pooling_counter ++;
+    if ( io_exp_pooling_counter > 250 )
+    {
+        io_exp_pooling_flag = true;
+        io_exp_pooling_counter = 0;
+    }
+
     if ( effect_1.enable )
     {
         uint8_t step_number;
@@ -123,39 +131,30 @@ bool main_timer_callback(struct repeating_timer *t)
         }
     }
 
+    // if ( effect_2.enable )
+    // {
+    //     uint8_t step_number;
+    //     effect_2.step += effect_2.increment_step;
+    //     for ( int i = 0 ; i < 24 ; i ++ )
+    //     {
+    //         if ( effect_2.dir == DIR_UP_TO_DOWN )
+    //         {
+    //             step_number = i;
+    //         }
+    //         else
+    //         {
+    //             step_number = settings.num_of_stairs - i;
+    //         }
 
-    if ( effect_2.enable )
-    {
-        uint8_t step_number;
-        effect_2.step += effect_2.increment_step;
-        for ( int i = 0 ; i < 24 ; i ++ )
-        {
-            if ( effect_2.dir == DIR_UP_TO_DOWN )
-            {
-                step_number = i;
-            }
-            else
-            {
-                step_number = settings.num_of_stairs - i;
-            }
+    //         PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  settings.max_pwm_duty - ( -effect_2.wide*i + effect_2.step ) );
+    //     }
 
-            PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  settings.max_pwm_duty - ( -effect_2.wide*i + effect_2.step ) );
-        }
-
-        // // End effect condition
-        // if ( ( -effect_2.wide*settings.last_stair + effect_2.step ) >= settings.max_pwm_duty )
-        // {
-        //     effect_2.enable = false;
-        // }
-    }
-
-
-    io_exp_pooling_counter ++;
-    if ( io_exp_pooling_counter > 5000 )
-    {
-        io_exp_pooling_flag = true;
-        io_exp_pooling_counter = 0;
-    }
+    //     // // End effect condition
+    //     // if ( ( -effect_2.wide*settings.last_stair + effect_2.step ) >= settings.max_pwm_duty )
+    //     // {
+    //     //     effect_2.enable = false;
+    //     // }
+    // }
 
     if ( light_on.light_on_flag == true )
     {
@@ -167,7 +166,9 @@ bool main_timer_callback(struct repeating_timer *t)
             light_on.light_on_flag = false;
         }
     }   
-    
+
+
+
     return true;
 }
 
@@ -188,9 +189,12 @@ void sens_top_enter(void)
         light_on.dir = DIR_UP_TO_DOWN;
         effect_1_start(light_on.dir);
     }  
-
 }
 
+void sens_top_exit(void)
+{
+    SEGGER_RTT_WriteString(0,"Sensor top exit\r\n");   
+}
 
 void sens_bottom_enter(void)
 {
@@ -205,6 +209,10 @@ void sens_bottom_enter(void)
     }  
 }
 
+void sens_bottom_exit(void)
+{
+    SEGGER_RTT_WriteString(0,"Sensor bottom exit\r\n"); 
+}
 
 bool led_state = false;
 
@@ -237,32 +245,24 @@ int main()
     SEGGER_RTT_printf(0, "###         %s %s         ###\r\n", __DATE__, __TIME__);
     SEGGER_RTT_WriteString(0,"############################################\r\n");
 
+
+    // STAIR Settings
     settings.first_stair = 0;
     settings.last_stair = 23;
     settings.num_of_stairs = 24;
     settings.max_pwm_duty = MAX_PWM_DUTY;
 
+    // Effect 1 settings
     effect_1.enable = false;
     effect_1.increment_step = 5;
     effect_1.wide = 1000;
     effect_1.dir = DIR_DOWN_TO_UP;
-
+    // Effect 2 settings
     effect_2.enable = false;
     effect_2.increment_step = 10;
     effect_2.wide = 1000;
     effect_2.dir = DIR_DOWN_TO_UP;
 
-   
-    for( int i = 0 ; i < 20 ; i ++ )
-    {
-        SEGGER_RTT_printf(0, "Counter: %d\r\n", i);
-        //cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-        gpio_put(PWM_CHANNEL_1_PIN, 1 );
-        sleep_ms(25);
-        //cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
-        gpio_put(PWM_CHANNEL_1_PIN, 0 );
-        sleep_ms(25);
-    }
 
     PWM_HW_init();
     PWM_PIO_init();
@@ -270,8 +270,8 @@ int main()
     I2C_init();
 
     IO_EXP_init();
-    IO_EXP_reg_event_sens_top_cbfunc(sens_top_enter, NULL);
-    IO_EXP_reg_event_sens_bottom_cbfunc(sens_bottom_enter, NULL);
+    IO_EXP_reg_event_sens_top_cbfunc(sens_top_enter, sens_top_exit);
+    IO_EXP_reg_event_sens_bottom_cbfunc(sens_bottom_enter, sens_bottom_exit);
 
     add_repeating_timer_us(-200, main_timer_callback, NULL, &main_timer);
     //add_repeating_timer_ms(-50, io_exp_pool, NULL, &io_pool_timer);
@@ -280,14 +280,22 @@ int main()
 
     while(1)
     {
+        static uint32_t counter = 0;
+
         if ( io_exp_pooling_flag == true)
         { 
             io_exp_pooling_flag = false;
-            SEGGER_RTT_printf(0,"pooling io exp\r\n");
+            counter++;
+            if ( ( counter % 50 ) == 0 )
+            {
+                SEGGER_RTT_printf(0,"pooling io exp. C: %4d\r\n", counter);
+            }
+            
             IO_EXP_pooling();
         }
     }
     
+
 
 //     while(1)
 //     {
