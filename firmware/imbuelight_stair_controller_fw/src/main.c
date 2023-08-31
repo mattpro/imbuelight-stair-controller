@@ -12,12 +12,12 @@
 #include "rtt/RTT/SEGGER_RTT.h"
 
 
-#define STAIR_LIGHT_ON_TIME     25000 //* 0.2ms - 5 000 - 1s
+#define STAIR_LIGHT_ON_TIME     5000 //* 1ms - 5 000 - 5s
 
 
 typedef struct {
     bool light_on_flag;
-    uint32_t light_on_counter;
+    uint32_t light_off_counter;
     effect_dir_t dir;
 } light_on_t;
 
@@ -47,8 +47,6 @@ volatile light_on_t light_on;
 
 volatile stair_effect_t effect_1;
 volatile stair_effect_t effect_2;
-
-
 
 struct repeating_timer main_timer;
 struct repeating_timer io_pool_timer;
@@ -86,7 +84,6 @@ void effect_2_start(effect_dir_t dir)
 
 bool main_timer_callback(struct repeating_timer *t) 
 {
-
     io_exp_pooling_counter ++;
     if ( io_exp_pooling_counter > 250 )
     {
@@ -125,7 +122,7 @@ bool main_timer_callback(struct repeating_timer *t)
         {
             effect_1.enable = false;
         }
-        if ( ( (settings.max_pwm_duty + effect_1.wide*step_number - effect_1.step) < 0  ) &&  ( effect_1.turn_dir == TURN_OFF ) )
+        if ( ( (settings.max_pwm_duty + effect_1.wide*step_number ) < 0  ) &&  ( effect_1.turn_dir == TURN_OFF ) )
         {
             effect_1.enable = false;
         }
@@ -158,30 +155,23 @@ bool main_timer_callback(struct repeating_timer *t)
 
     if ( light_on.light_on_flag == true )
     {
-        light_on.light_on_counter ++;
-        if ( light_on.light_on_counter > STAIR_LIGHT_ON_TIME )
+        light_on.light_off_counter ++;
+        if ( light_on.light_off_counter > STAIR_LIGHT_ON_TIME )
         {
             SEGGER_RTT_WriteString(0,"Light exit\r\n");
             light_on.dir == DIR_UP_TO_DOWN ? effect_1_end(DIR_UP_TO_DOWN) : effect_1_end(DIR_DOWN_TO_UP);
             light_on.light_on_flag = false;
-        }
+        }  
     }   
 
-
-
     return true;
 }
 
-bool io_exp_pool(struct repeating_timer *t) 
-{
-    io_exp_pooling_flag = true;
-    return true;
-}
 
 void sens_top_enter(void)
 {
     SEGGER_RTT_WriteString(0,"Sensor top enter\r\n");   
-    light_on.light_on_counter = 0;
+    light_on.light_off_counter = 0;
     if ( light_on.light_on_flag == false )
     {
         SEGGER_RTT_WriteString(0,"Light enter\r\n");
@@ -199,11 +189,11 @@ void sens_top_exit(void)
 void sens_bottom_enter(void)
 {
     SEGGER_RTT_WriteString(0,"Sensor bottom enter\r\n");
+    light_on.light_off_counter = 0;
     if ( light_on.light_on_flag == false )
     {
         SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
-        light_on.light_on_counter = 0;
         light_on.dir = DIR_DOWN_TO_UP;
         effect_1_start(light_on.dir);
     }  
@@ -254,7 +244,7 @@ int main()
 
     // Effect 1 settings
     effect_1.enable = false;
-    effect_1.increment_step = 5;
+    effect_1.increment_step = 10;
     effect_1.wide = 1000;
     effect_1.dir = DIR_DOWN_TO_UP;
     // Effect 2 settings
@@ -266,15 +256,11 @@ int main()
 
     PWM_HW_init();
     PWM_PIO_init();
-
     I2C_init();
-
     IO_EXP_init();
     IO_EXP_reg_event_sens_top_cbfunc(sens_top_enter, sens_top_exit);
     IO_EXP_reg_event_sens_bottom_cbfunc(sens_bottom_enter, sens_bottom_exit);
-
-    add_repeating_timer_us(-200, main_timer_callback, NULL, &main_timer);
-    //add_repeating_timer_ms(-50, io_exp_pool, NULL, &io_pool_timer);
+    add_repeating_timer_us(-1000, main_timer_callback, NULL, &main_timer);
 
     SEGGER_RTT_printf(0,"Boot ok\r\n");
 
@@ -286,47 +272,8 @@ int main()
         { 
             io_exp_pooling_flag = false;
             counter++;
-            if ( ( counter % 50 ) == 0 )
-            {
-                SEGGER_RTT_printf(0,"pooling io exp. C: %4d\r\n", counter);
-            }
-            
+            //SEGGER_RTT_printf(0,"pooling io exp. C: %4d\r\n", counter);
             IO_EXP_pooling();
         }
     }
-    
-
-
-//     while(1)
-//     {
-//         effect_1_start(DIR_UP_TO_DOWN);
-//         sleep_ms(1500);
-//         effect_1.enable = false;
-//         //effect_1.dir ^= 1;
-//         effect_2_start(DIR_UP_TO_DOWN);
-//         sleep_ms(1500);
-//         effect_2.enable = false;
-//         if ( main_timer_flag )
-//         {
-//             main_timer_flag = false;    
-
-//             // for ( int i = 0 ; i < 24 ; i ++ )
-//             // {
-//             //     PWM_set_duty_in_channel_with_gamma( (pwm_channel_t)i, counter );
-//             // }
-//             // counter += 1;
-//         }
-
-//         if ( counter > 0x3FFF )
-//         {
-//             counter = 0;
-// //          state ^= true;
-// //          gpio_put(PWM_CHANNEL_1_PIN, state );
-//         }
-
-//         // cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-//         // sleep_ms(10);
-//         // cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
-//         // sleep_ms(10);
-//     }
 }

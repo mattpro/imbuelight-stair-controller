@@ -32,7 +32,7 @@
                 "${workspaceRoot}/imbuelight_stair_controller_fw/flash.jlink"
             ],
             "problemMatcher": []
-        }.
+        },
         {
             "label": "Reset J-Link",
             "type": "shell",
