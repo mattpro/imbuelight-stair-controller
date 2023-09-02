@@ -74,13 +74,19 @@ void effect_1_end(effect_dir_t dir)
     effect_1.enable = true;
 }
 
-void effect_2_start(effect_dir_t dir)
+void effect_2_start(void)
 {
-    effect_2.dir = dir;
-    effect_2.step = 0; 
+    effect_2.step = 0;
+    effect_2.turn_dir = TURN_ON;
     effect_2.enable = true;
 }
 
+void effect_2_end(void)
+{
+    effect_2.step = 0;
+    effect_2.turn_dir = TURN_OFF;
+    effect_2.enable = true;
+}
 
 bool main_timer_callback(struct repeating_timer *t) 
 {
@@ -128,30 +134,32 @@ bool main_timer_callback(struct repeating_timer *t)
         }
     }
 
-    // if ( effect_2.enable )
-    // {
-    //     uint8_t step_number;
-    //     effect_2.step += effect_2.increment_step;
-    //     for ( int i = 0 ; i < 24 ; i ++ )
-    //     {
-    //         if ( effect_2.dir == DIR_UP_TO_DOWN )
-    //         {
-    //             step_number = i;
-    //         }
-    //         else
-    //         {
-    //             step_number = settings.num_of_stairs - i;
-    //         }
+    if ( effect_2.enable )
+    {
+        effect_2.step += effect_2.increment_step;
 
-    //         PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  settings.max_pwm_duty - ( -effect_2.wide*i + effect_2.step ) );
-    //     }
+        for ( int i = 0 ; i < 24 ; i ++ )
+        {
+            if ( effect_2.turn_dir == TURN_ON )
+            {
+                PWM_set_duty_in_channel_with_gamma((pwm_channel_t)i,  effect_2.step );
+            }
+            else if ( effect_2.turn_dir == TURN_OFF )
+            {
+                PWM_set_duty_in_channel_with_gamma((pwm_channel_t)i,  settings.max_pwm_duty - effect_2.step );
+            }
+        }
 
-    //     // // End effect condition
-    //     // if ( ( -effect_2.wide*settings.last_stair + effect_2.step ) >= settings.max_pwm_duty )
-    //     // {
-    //     //     effect_2.enable = false;
-    //     // }
-    // }
+        // End effect condition
+        if ( ( effect_2.turn_dir == TURN_ON ) && (  effect_2.step > settings.max_pwm_duty ) )
+        {
+            effect_2.enable = false;
+        }
+        if ( ( effect_2.turn_dir == TURN_OFF ) && (  effect_2.step < 0 ) )
+        {
+            effect_2.enable = false;
+        }
+    }
 
     if ( light_on.light_on_flag == true )
     {
@@ -159,7 +167,8 @@ bool main_timer_callback(struct repeating_timer *t)
         if ( light_on.light_off_counter > STAIR_LIGHT_ON_TIME )
         {
             SEGGER_RTT_WriteString(0,"Light exit\r\n");
-            light_on.dir == DIR_UP_TO_DOWN ? effect_1_end(DIR_UP_TO_DOWN) : effect_1_end(DIR_DOWN_TO_UP);
+            //light_on.dir == DIR_UP_TO_DOWN ? effect_1_end(DIR_UP_TO_DOWN) : effect_1_end(DIR_DOWN_TO_UP);
+            effect_2_end();
             light_on.light_on_flag = false;
         }  
     }   
@@ -177,7 +186,8 @@ void sens_top_enter(void)
         SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
         light_on.dir = DIR_UP_TO_DOWN;
-        effect_1_start(light_on.dir);
+        //effect_1_start(light_on.dir);
+        effect_2_start();
     }  
 }
 
@@ -195,7 +205,8 @@ void sens_bottom_enter(void)
         SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
         light_on.dir = DIR_DOWN_TO_UP;
-        effect_1_start(light_on.dir);
+        //effect_1_start(light_on.dir);
+        effect_2_start();
     }  
 }
 
@@ -247,10 +258,10 @@ int main()
     effect_1.increment_step = 10;
     effect_1.wide = 1000;
     effect_1.dir = DIR_DOWN_TO_UP;
+
     // Effect 2 settings
     effect_2.enable = false;
     effect_2.increment_step = 10;
-    effect_2.wide = 1000;
     effect_2.dir = DIR_DOWN_TO_UP;
 
 
