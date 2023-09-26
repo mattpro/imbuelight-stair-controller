@@ -3,8 +3,6 @@
 #include "hardware/pio.h"
 #include "hardware/pwm.h"
 #include "hardware/clocks.h"
-#include "pwm.pio.h"
-#include "pico/cyw43_arch.h"
 #include "pwm_pio.h"
 #include "pwm.h"
 #include "config.h"

@@ -22,7 +22,9 @@
         "memory": "c",
         "type_traits": "c",
         "xtree": "c",
-        "segger_rtt.h": "c"
+        "segger_rtt.h": "c",
+        "btstack_cyw43.h": "c",
+        "server_common.h": "c"
     },
 
     

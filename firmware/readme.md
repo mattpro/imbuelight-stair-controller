@@ -29,3 +29,11 @@ Example from WSL terminal:
 ```
 make
 ```
+
+
+To update pico sdk
+```
+cd pico-sdk
+$ git pull
+$ git submodule update
+```
