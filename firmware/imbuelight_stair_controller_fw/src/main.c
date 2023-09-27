@@ -240,13 +240,13 @@ static void heartbeat_handler(struct btstack_timer_source *ts) {
     static uint32_t counter = 0;
     counter++;
 
-    // Update the temp every 10s
-    if (counter % 10 == 0) {
-        poll_temp();
-        if (le_notification_enabled) {
-            att_server_request_can_send_now_event(con_handle);
-        }
-    }
+    // // Update the temp every 10s
+    // if (counter % 10 == 0) {
+    //     poll_temp();
+    //     if (le_notification_enabled) {
+    //         att_server_request_can_send_now_event(con_handle);
+    //     }
+    // }
 
     // Invert the led
    static int led_on = true;
@@ -341,9 +341,9 @@ int main()
     att_server_register_packet_handler(packet_handler);
 
     // set one-shot btstack timer
-    heartbeat.process = &heartbeat_handler;
-    btstack_run_loop_set_timer(&heartbeat, HEARTBEAT_PERIOD_MS);
-    btstack_run_loop_add_timer(&heartbeat);
+    //heartbeat.process = &heartbeat_handler;
+   // btstack_run_loop_set_timer(&heartbeat, HEARTBEAT_PERIOD_MS);
+   // btstack_run_loop_add_timer(&heartbeat);
 
     // turn on bluetooth!
     hci_power_control(HCI_POWER_ON);
