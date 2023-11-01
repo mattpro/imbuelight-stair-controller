@@ -22,7 +22,7 @@ typedef enum {
 // Standard PWM
 #define PWM_CHANNEL_1_PIN       0   // Slice: 0 CH: A
 #define PWM_CHANNEL_2_PIN       1   // Slice: 0 CH: B
-#define PWM_CHANNEL_24_PIN      2   // Slice: 1 CH: A
+#define PWM_CHANNEL_10_PIN      18   // Slice: 1 CH: A    SLICE 1A moze byc albo pin 2 lub 18 // kanał 24 trzeba usunąć - pinu 2 nie moge użyć
 #define PWM_CHANNEL_23_PIN      3   // Slice: 1 CH: B  
 #define PWM_CHANNEL_3_PIN       4   // Slice: 2 CH: A
 #define PWM_CHANNEL_4_PIN       5   // Slice: 2 CH: B
@@ -46,8 +46,7 @@ typedef enum {
 
 // PWM from PIO 1
 #define PIO_CHANNEL_9_12       pio1
-#define PWM_CHANNEL_9_PIN       19
-#define PWM_CHANNEL_10_PIN      18 
+#define PWM_CHANNEL_9_PIN       19 
 #define PWM_CHANNEL_11_PIN      17
 #define PWM_CHANNEL_12_PIN      16 
 

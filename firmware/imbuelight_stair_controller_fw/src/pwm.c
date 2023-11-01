@@ -11,7 +11,7 @@
 static const uint8_t pwm_hw_pins[16] = {
     PWM_CHANNEL_1_PIN,
     PWM_CHANNEL_2_PIN,
-    PWM_CHANNEL_24_PIN,
+    PWM_CHANNEL_10_PIN,
     PWM_CHANNEL_23_PIN,
     PWM_CHANNEL_3_PIN,
     PWM_CHANNEL_4_PIN,
@@ -64,9 +64,9 @@ void PWM_set_duty_in_channel(pwm_channel_t channel, uint16_t duty)
         case CH_2:
             pwm_set_chan_level(0, PWM_CHAN_B, duty);   
         break;
-        case CH_24:
-            pwm_set_chan_level(1, PWM_CHAN_A, duty);   
-        break;
+        // case CH_24:
+        //     pwm_set_chan_level(1, PWM_CHAN_A, duty);   
+        // break;
         case CH_23:
             pwm_set_chan_level(1, PWM_CHAN_B, duty);   
         break;
@@ -119,10 +119,11 @@ void PWM_set_duty_in_channel(pwm_channel_t channel, uint16_t duty)
             PWM_PIO_set_level(PIO_CHANNEL_5_8, PIO_STATE_MACHINE_4, duty );  
         break;
         case CH_9:
-            PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_1, duty );  
+            PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_2, duty );  // tu jest probelm
         break;
         case CH_10:
-            PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_2, duty );  
+            pwm_set_chan_level(1, PWM_CHAN_A, duty);   
+            //PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_2, duty );  
         break;
         case CH_11:
             PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_3, duty );  

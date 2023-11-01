@@ -8,7 +8,7 @@
 #include "config.h"
 #include "my_i2c.h"
 #include "io_exp.h"
-
+#include "utils.h"
 #include "rtt/RTT/SEGGER_RTT.h"
 
 
@@ -21,24 +21,19 @@
 #define HEARTBEAT_PERIOD_MS 1000
 
 
-
-
-
-#define STAIR_LIGHT_ON_TIME     5000 //* 1ms - 5 000 - 5s
-
-
 typedef struct {
     bool light_on_flag;
+    bool light_on_from_top_flag;
+    bool light_on_from_bottom_flag;
     uint32_t light_off_counter;
     effect_dir_t dir;
 } light_on_t;
 
 
 typedef struct {
-    uint8_t first_stair;
-    uint8_t last_stair;
     uint8_t num_of_stairs;
     uint16_t max_pwm_duty;
+    uint32_t stair_light_on_time_ms;
 } settings_t;
 
 
@@ -100,10 +95,10 @@ void effect_2_end(void)
     effect_2.enable = true;
 }
 
-bool main_timer_callback(struct repeating_timer *t) 
+bool main_timer_callback(struct repeating_timer *t) // each 2ms
 {
     io_exp_pooling_counter ++;
-    if ( io_exp_pooling_counter > 250 )
+    if ( io_exp_pooling_counter > 50 )
     {
         io_exp_pooling_flag = true;
         io_exp_pooling_counter = 0;
@@ -112,37 +107,38 @@ bool main_timer_callback(struct repeating_timer *t)
     if ( effect_1.enable )
     {
         uint8_t step_number;
+        int calculate_duty;
 
         effect_1.step += effect_1.increment_step; 
 
-        for ( int i = 0 ; i < 24 ; i ++ )
-        {
-            if ( effect_1.dir == DIR_UP_TO_DOWN )
-            {
-                step_number = i;
-            }
-            else
-            {
-                step_number = settings.num_of_stairs - i;
-            }
+        SEGGER_RTT_WriteString(0,"------------------------------\r\n");
 
-            if ( effect_1.turn_dir == TURN_ON )
-            {
-                PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  -effect_1.wide*i + effect_1.step);
-            }
-            else
-            {
-                PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number,  settings.max_pwm_duty + effect_1.wide*i - effect_1.step);
-            }
+        // Update each step PWM
+        for ( int i = 0 ; i < settings.num_of_stairs ; i ++ )
+        {
+            if      ( effect_1.dir == DIR_UP_TO_DOWN )  step_number = i;
+            else if ( effect_1.dir == DIR_DOWN_TO_UP )  step_number = settings.num_of_stairs - i - 1;
+            
+            if      ( effect_1.turn_dir == TURN_ON  )   calculate_duty = -effect_1.wide*i + effect_1.step;
+            else if ( effect_1.turn_dir == TURN_OFF )   calculate_duty = settings.max_pwm_duty + effect_1.wide*i - effect_1.step;
+
+            PWM_set_duty_in_channel_with_gamma((pwm_channel_t)step_number, calculate_duty);
+
+            SEGGER_RTT_printf(0, "[%2d]=%d\r\n", i, calculate_duty);
         }
 
-        if ( ( -effect_1.wide*step_number > settings.max_pwm_duty ) &&  ( effect_1.turn_dir == TURN_ON ) )
+        // Check ending condition
+        if ( ( effect_1.turn_dir == TURN_ON  ) && ( calculate_duty > settings.max_pwm_duty ) )
         {
+            SEGGER_RTT_WriteString(0,"Effect animation disable after turn on\r\n");
             effect_1.enable = false;
         }
-        if ( ( (settings.max_pwm_duty + effect_1.wide*step_number ) < 0  ) &&  ( effect_1.turn_dir == TURN_OFF ) )
+        else if ( ( effect_1.turn_dir == TURN_OFF ) && ( calculate_duty < 0 ) )
         {
+            SEGGER_RTT_WriteString(0,"Effect animation disable after turn off\r\n");
             effect_1.enable = false;
+            light_on.light_on_from_top_flag = false; 
+            light_on.light_on_from_bottom_flag = false; 
         }
     }
 
@@ -150,7 +146,7 @@ bool main_timer_callback(struct repeating_timer *t)
     {
         effect_2.step += effect_2.increment_step;
 
-        for ( int i = 0 ; i < 24 ; i ++ )
+        for ( int i = 0 ; i < settings.num_of_stairs ; i ++ )
         {
             if ( effect_2.turn_dir == TURN_ON )
             {
@@ -173,15 +169,16 @@ bool main_timer_callback(struct repeating_timer *t)
         }
     }
 
-    if ( light_on.light_on_flag == true )
+    if ( ( light_on.light_on_flag == true ) && ( ( light_on.light_on_from_top_flag == true ) || ( light_on.light_on_from_bottom_flag == true ) ) )
     {
         light_on.light_off_counter ++;
-        if ( light_on.light_off_counter > STAIR_LIGHT_ON_TIME )
+        if ( light_on.light_off_counter > settings.stair_light_on_time_ms/2 ) // time diveded by 2 because loop interval is 2ms
         {
             SEGGER_RTT_WriteString(0,"Light exit\r\n");
-            //light_on.dir == DIR_UP_TO_DOWN ? effect_1_end(DIR_UP_TO_DOWN) : effect_1_end(DIR_DOWN_TO_UP);
-            effect_2_end();
+            light_on.dir == DIR_UP_TO_DOWN ? effect_1_end(DIR_UP_TO_DOWN) : effect_1_end(DIR_DOWN_TO_UP);
+            //effect_2_end();
             light_on.light_on_flag = false;
+            light_on.light_off_counter = 0;
         }  
     }   
 
@@ -193,18 +190,20 @@ void sens_top_enter(void)
 {
     SEGGER_RTT_WriteString(0,"Sensor top enter\r\n");   
     light_on.light_off_counter = 0;
-    if ( light_on.light_on_flag == false )
+    light_on.light_on_from_top_flag = false;
+    if ( ( light_on.light_on_from_top_flag == false ) && ( light_on.light_on_flag == false ) )
     {
         SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
         light_on.dir = DIR_UP_TO_DOWN;
-        //effect_1_start(light_on.dir);
-        effect_2_start();
+        effect_1_start(light_on.dir);
+        //effect_2_start();
     }  
 }
 
 void sens_top_exit(void)
 {
+    light_on.light_on_from_top_flag = true;
     SEGGER_RTT_WriteString(0,"Sensor top exit\r\n");   
 }
 
@@ -212,31 +211,32 @@ void sens_bottom_enter(void)
 {
     SEGGER_RTT_WriteString(0,"Sensor bottom enter\r\n");
     light_on.light_off_counter = 0;
-    if ( light_on.light_on_flag == false )
+    light_on.light_on_from_bottom_flag = false;
+    if ( ( light_on.light_on_from_bottom_flag == false ) && ( light_on.light_on_flag == false ) )
     {
         SEGGER_RTT_WriteString(0,"Light enter\r\n");
         light_on.light_on_flag = true;
         light_on.dir = DIR_DOWN_TO_UP;
-        //effect_1_start(light_on.dir);
-        effect_2_start();
+        effect_1_start(light_on.dir);
+        //effect_2_start();
     }  
 }
 
 void sens_bottom_exit(void)
 {
+    light_on.light_on_from_bottom_flag = true;
     SEGGER_RTT_WriteString(0,"Sensor bottom exit\r\n"); 
 }
 
 bool led_state = false;
 
 
-
-
 // Related to bluetooth
 static btstack_timer_source_t heartbeat;
 static btstack_packet_callback_registration_t hci_event_callback_registration;
 
-static void heartbeat_handler(struct btstack_timer_source *ts) {
+static void heartbeat_handler(struct btstack_timer_source *ts) 
+{
     static uint32_t counter = 0;
     counter++;
 
@@ -249,9 +249,9 @@ static void heartbeat_handler(struct btstack_timer_source *ts) {
     // }
 
     // Invert the led
-   static int led_on = true;
-   led_on = !led_on;
-   cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, led_on);
+    static int led_on = true;
+    led_on = !led_on;
+    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, led_on);
 
     // Restart timer
     btstack_run_loop_set_timer(ts, HEARTBEAT_PERIOD_MS);
@@ -260,30 +260,10 @@ static void heartbeat_handler(struct btstack_timer_source *ts) {
 
 
 
-
 int main() 
 {
-    // const uint LED_PIN = 6;
-    // bool state = true;
-    // if (cyw43_arch_init()) {
-    //     printf("Wi-Fi init failed");
-    //     return -1;
-    // }
-
     stdio_init_all();
-
-    gpio_init(PWM_CHANNEL_1_PIN);
-    gpio_set_dir(PWM_CHANNEL_1_PIN, GPIO_OUT);
-    for( int i = 0 ; i < 20 ; i ++ )
-    {
-        //SEGGER_RTT_printf(0, "Counter: %d\r\n", i);
-        //cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-        gpio_put(PWM_CHANNEL_1_PIN, 1 );
-        sleep_ms(25);
-        //cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 0);
-        gpio_put(PWM_CHANNEL_1_PIN, 0 );
-        sleep_ms(25);
-    }
+    start_blink_led();
 
     SEGGER_RTT_WriteString(0,"############################################\r\n");
     SEGGER_RTT_WriteString(0,"### IMBUE LIGHT STAIR CONTROLLER VER 1.1 ###\r\n");
@@ -292,14 +272,13 @@ int main()
 
 
     // STAIR Settings
-    settings.first_stair = 0;
-    settings.last_stair = 23;
-    settings.num_of_stairs = 24;
+    settings.num_of_stairs = 17;
     settings.max_pwm_duty = MAX_PWM_DUTY;
+    settings.stair_light_on_time_ms = 5000;
 
     // Effect 1 settings
     effect_1.enable = false;
-    effect_1.increment_step = 10;
+    effect_1.increment_step = 40;
     effect_1.wide = 1000;
     effect_1.dir = DIR_DOWN_TO_UP;
 
@@ -323,7 +302,8 @@ int main()
 // Related to bluetooth
 
 // initialize CYW43 driver architecture (will enable BT if/because CYW43_ENABLE_BLUETOOTH == 1)
-    if (cyw43_arch_init()) {
+    if (cyw43_arch_init()) 
+    {
         printf("failed to initialise cyw43_arch\n");
         return -1;
     }
@@ -341,14 +321,14 @@ int main()
     att_server_register_packet_handler(packet_handler);
 
     // set one-shot btstack timer
-    //heartbeat.process = &heartbeat_handler;
-   // btstack_run_loop_set_timer(&heartbeat, HEARTBEAT_PERIOD_MS);
-   // btstack_run_loop_add_timer(&heartbeat);
+    heartbeat.process = &heartbeat_handler;
+    btstack_run_loop_set_timer(&heartbeat, HEARTBEAT_PERIOD_MS);
+    btstack_run_loop_add_timer(&heartbeat);
 
     // turn on bluetooth!
     hci_power_control(HCI_POWER_ON);
     
- //btstack_run_loop_execute();
+   // btstack_run_loop_execute();
 
 
     while(1)
@@ -359,7 +339,7 @@ int main()
         { 
             io_exp_pooling_flag = false;
             counter++;
-            //SEGGER_RTT_printf(0,"pooling io exp. C: %4d\r\n", counter);
+            SEGGER_RTT_printf(0,"pooling io exp. C: %4d enable:%d light off counter: %d\r\n", counter, effect_1.enable, light_on.light_off_counter);
             IO_EXP_pooling();
         }
     }

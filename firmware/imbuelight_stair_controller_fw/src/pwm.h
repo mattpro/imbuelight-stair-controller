@@ -31,7 +31,7 @@ typedef enum
     CH_21,
     CH_22, 
     CH_23, 
-    CH_24,
+   // CH_24,
 } pwm_channel_t;
 
 

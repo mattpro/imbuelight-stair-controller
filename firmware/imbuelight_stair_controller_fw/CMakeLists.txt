@@ -24,6 +24,7 @@ add_executable(${PROJECT_NAME}
     src/pwm_pio.c
     src/my_i2c.c
     src/io_exp.c
+    src/utils.c
     #src/rtt/RTT/SEGGER_RTT.c 
     #src/rtt/RTT/SEGGER_RTT_printf.c
     src/server_common.c
