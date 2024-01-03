@@ -3,8 +3,6 @@
 #include "hardware/pio.h"
 #include "hardware/pwm.h"
 #include "hardware/clocks.h"
-#include "pwm.pio.h"
-#include "pico/cyw43_arch.h"
 #include "pwm_pio.h"
 #include "pwm.h"
 #include "config.h"
@@ -13,7 +11,7 @@
 static const uint8_t pwm_hw_pins[16] = {
     PWM_CHANNEL_1_PIN,
     PWM_CHANNEL_2_PIN,
-    PWM_CHANNEL_24_PIN,
+    PWM_CHANNEL_10_PIN,
     PWM_CHANNEL_23_PIN,
     PWM_CHANNEL_3_PIN,
     PWM_CHANNEL_4_PIN,
@@ -66,9 +64,9 @@ void PWM_set_duty_in_channel(pwm_channel_t channel, uint16_t duty)
         case CH_2:
             pwm_set_chan_level(0, PWM_CHAN_B, duty);   
         break;
-        case CH_24:
-            pwm_set_chan_level(1, PWM_CHAN_A, duty);   
-        break;
+        // case CH_24:
+        //     pwm_set_chan_level(1, PWM_CHAN_A, duty);   
+        // break;
         case CH_23:
             pwm_set_chan_level(1, PWM_CHAN_B, duty);   
         break;
@@ -121,10 +119,11 @@ void PWM_set_duty_in_channel(pwm_channel_t channel, uint16_t duty)
             PWM_PIO_set_level(PIO_CHANNEL_5_8, PIO_STATE_MACHINE_4, duty );  
         break;
         case CH_9:
-            PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_1, duty );  
+            PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_2, duty );  // tu jest probelm
         break;
         case CH_10:
-            PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_2, duty );  
+            pwm_set_chan_level(1, PWM_CHAN_A, duty);   
+            //PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_2, duty );  
         break;
         case CH_11:
             PWM_PIO_set_level(PIO_CHANNEL_9_12, PIO_STATE_MACHINE_3, duty );  
@@ -143,6 +142,26 @@ void PWM_set_duty_in_channel_with_gamma(pwm_channel_t channel, int duty)
     if ( duty > MAX_PWM_DUTY )
     {
         gamma_duty = MAX_PWM_DUTY;
+    }
+    else if ( duty < 0 )
+    {
+        gamma_duty = 0;
+    }
+    else
+    {
+        gamma_duty = (uint16_t)(powf( (float)duty / (float)MAX_PWM_DUTY, GAMMA_FACTOR ) * MAX_PWM_DUTY + 0.5);
+    }
+
+    PWM_set_duty_in_channel(channel, gamma_duty);
+}
+
+void PWM_set_duty_in_channel_with_gamma_max_duty(pwm_channel_t channel, int duty, int max_duty)
+{
+    uint16_t gamma_duty = 0;
+
+    if ( duty > max_duty )
+    {
+        gamma_duty = max_duty;
     }
     else if ( duty < 0 )
     {

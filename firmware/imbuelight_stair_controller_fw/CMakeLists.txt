@@ -12,6 +12,10 @@ set(PICO_BOARD "pico_w")
 
 pico_sdk_init()
 
+include_directories(src/rtt/Config src/rtt/RTT)
+
+include_directories(src/rtt/Config) # src/rtt/RTT)
+
 add_executable(${PROJECT_NAME}
     src/main.c  
     src/pwm.c
@@ -20,15 +24,29 @@ add_executable(${PROJECT_NAME}
     src/pwm_pio.c
     src/my_i2c.c
     src/io_exp.c
+    src/utils.c
+    #src/rtt/RTT/SEGGER_RTT.c 
+    #src/rtt/RTT/SEGGER_RTT_printf.c
+    src/server_common.c
 )
 
 target_link_libraries(${PROJECT_NAME}
     pico_stdlib
     hardware_pio
     hardware_pwm
+    hardware_i2c    
+    pico_btstack_ble
+    pico_btstack_cyw43
     pico_cyw43_arch_none
-    hardware_i2c
 )
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+     ${CMAKE_CURRENT_LIST_DIR}/src # For btstack config
+     )
+pico_btstack_make_gatt_header(${PROJECT_NAME} PRIVATE 
+    "${CMAKE_CURRENT_LIST_DIR}/src/temp_sensor.gatt"
+    )
+ 
 
 add_compile_options(-Wall
         -Wno-format          # int != int32_t as far as the compiler is concerned because gcc has int32_t as long int

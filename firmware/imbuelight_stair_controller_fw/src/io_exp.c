@@ -99,20 +99,46 @@ void IO_EXP_reg_event_sens_top_cbfunc(void(*sens_top_enter)(void), void(*sens_to
 }
 
 
+void IO_EXP_reg_event_sens_bottom_cbfunc(void(*sens_bottom_enter)(void), void(*sens_bottom_exit)(void))
+{
+    if(sens_bottom_enter != NULL )
+    {
+        io_expander_event._sens_bottom_enter = sens_bottom_enter;
+    }
+    else
+    {
+        io_expander_event._sens_bottom_enter = default_sens_bottom_enter;
+    }
+
+    if(sens_bottom_exit != NULL )
+    {
+        io_expander_event._sens_bottom_exit = sens_bottom_exit;
+    }
+    else
+    {
+        io_expander_event._sens_bottom_exit = default_sens_bottom_exit;
+    }
+}
+
+
 void IO_EXP_init(void)
 {
-    uint8_t data = 0;
+    uint8_t data = 0xff;
+    sleep_ms(10);
+    I2C_write(IO_EXP_I2C_ADDRESS, 0x02, &data, 1); // clear Polarity inversion register
+    sleep_ms(10);
     I2C_read(IO_EXP_I2C_ADDRESS, 0x00, &data, 1);
+    sleep_ms(10);
     new_io_exp_state = data;
     old_io_exp_state = data;
 }
 
 
 void IO_EXP_pooling(void)
-{
+{   
     I2C_read(IO_EXP_I2C_ADDRESS, 0x00, &new_io_exp_state, 1); 
     change_io_exp_state = new_io_exp_state ^ old_io_exp_state;
-    //printf("Change: %02x\r\n", change_io_exp_state);
+   //SEGGER_RTT_printf(0, "Change: %02X current state: %02X\r\n", change_io_exp_state, (uint8_t)(~new_io_exp_state));
 
     switch( change_io_exp_state )
     {
@@ -138,7 +164,7 @@ void IO_EXP_pooling(void)
             new_io_exp_state & SENS_TOP ? io_expander_event._sens_top_exit() : io_expander_event._sens_top_enter();
         break;
         case SENS_BOTTOM:
-            new_io_exp_state & SENS_BOTTOM ? io_expander_event._sens_bottom_exit() : io_expander_event._sens_bottom_enter();
+            new_io_exp_state & SENS_BOTTOM ? io_expander_event._sens_bottom_exit() : io_expander_event._sens_bottom_enter(); 
         break;
     }
 

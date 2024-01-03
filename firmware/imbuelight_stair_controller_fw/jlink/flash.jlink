@@ -1,0 +1,4 @@
+loadfile D:\LocalRepo\imbue_light\imbuelight-stair-controller\firmware\imbuelight_stair_controller_fw\build\imbuelight_stair_controller.hex
+reset
+exit
+

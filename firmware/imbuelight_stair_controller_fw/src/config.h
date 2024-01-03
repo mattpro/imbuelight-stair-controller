@@ -1,22 +1,28 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
+#include "rtt/RTT/SEGGER_RTT.h"
+
 // SETTINGS
 #define GAMMA_FACTOR 4.0f
 
 // ENUM
 typedef enum {
     DIR_DOWN_TO_UP,
-    DIR_UP_TO_DOW
+    DIR_UP_TO_DOWN
 } effect_dir_t;
 
+typedef enum {
+    TURN_ON,
+    TURN_OFF
+} turn_dir_t;
 
 
 // PINOUT
 // Standard PWM
 #define PWM_CHANNEL_1_PIN       0   // Slice: 0 CH: A
 #define PWM_CHANNEL_2_PIN       1   // Slice: 0 CH: B
-#define PWM_CHANNEL_24_PIN      2   // Slice: 1 CH: A
+#define PWM_CHANNEL_10_PIN      18   // Slice: 1 CH: A    SLICE 1A moze byc albo pin 2 lub 18 // kanał 24 trzeba usunąć - pinu 2 nie moge użyć
 #define PWM_CHANNEL_23_PIN      3   // Slice: 1 CH: B  
 #define PWM_CHANNEL_3_PIN       4   // Slice: 2 CH: A
 #define PWM_CHANNEL_4_PIN       5   // Slice: 2 CH: B
@@ -40,8 +46,7 @@ typedef enum {
 
 // PWM from PIO 1
 #define PIO_CHANNEL_9_12       pio1
-#define PWM_CHANNEL_9_PIN       19
-#define PWM_CHANNEL_10_PIN      18 
+#define PWM_CHANNEL_9_PIN       19 
 #define PWM_CHANNEL_11_PIN      17
 #define PWM_CHANNEL_12_PIN      16 
 

@@ -31,7 +31,7 @@ typedef enum
     CH_21,
     CH_22, 
     CH_23, 
-    CH_24,
+   // CH_24,
 } pwm_channel_t;
 
 
@@ -40,5 +40,6 @@ void PWM_HW_set_duty(uint8_t channel, uint16_t duty);
 
 void PWM_set_duty_in_channel(pwm_channel_t channel, uint16_t duty);
 void PWM_set_duty_in_channel_with_gamma(pwm_channel_t channel, int duty);
+void PWM_set_duty_in_channel_with_gamma_max_duty(pwm_channel_t channel, int duty, int max_duty);
 
 #endif
